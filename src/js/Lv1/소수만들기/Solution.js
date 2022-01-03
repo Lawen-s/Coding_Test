@@ -50,5 +50,7 @@ function solution(nums) {
 function isPrime(sum) {
     for (let i = 2; i < sum; i++)
         if (sum % i === 0) return false;
-    return sum > 1;
+    return true;
 }
+
+console.log(solution([1, 2, 3, 4]));
