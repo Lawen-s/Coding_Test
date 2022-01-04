@@ -27,23 +27,33 @@ function solution(n, lost, reserve) {
 }
 //내가 푼 코드1.
 // function solution(n, lost, reserve) {
-//    let arr = [];
-//    let newReverse=reserve.slice();
-//    newReverse.map((el,idx)=>{
-//        console.log(idx)
-//        if(el!==lost[idx]-1&&el!==lost[idx]+1&&lost[idx]!==undefined){
-//         console.log(lost[idx]);
-//         arr.push(lost[idx]);
-//        }else{
-//            console.log(reserve)
-//            reserve.splice(idx,1);
-//            lost.splice(idx,1);
-//        }
-//    })
-//    console.log(reserve)
-//    console.log(lost)
-//    console.log(arr)
-//    return n-(arr.length+lost.length)
+//     let newLost= [];
+//     for(let i of lost){
+//         if(reserve.includes(i)){
+//             let idx =reserve.indexOf(i);
+//             console.log(idx);
+//             reserve.splice(idx,1)
+//         }else{
+//         newLost.push(i);
+//         }
+//     }
+//     console.log(newLost);
+//     let cLost = newLost.slice();
+//     console.log(cLost)
+//     for(let i =0;i<newLost.length;i++){
+//         if(reserve.includes(newLost[i]-1)){
+//             let idx = reserve.indexOf(newLost[i]-1);
+//             reserve.splice(idx,1);
+//             cLost.splice(idx,1);
+//         }else if(reserve.includes(newLost[i]+1)){
+//             let idx = reserve.indexOf(newLost[i]+1);
+//             reserve.splice(idx,1);
+//             cLost.splice(idx,1);
+//         }
+//     }
+
+//     console.log(reserve)
+//     return n-cLost.length
 // }
 
 //내가 푼 코드2.
@@ -72,26 +82,29 @@ function solution(n, lost, reserve) {
 //내가 푼 코드3.
 // function solution(n, lost, reserve) {
 
-//     for(let i =0;i<lost.length;i++){
-//         for(let j =0;j<reserve.length;j++){
-//             if(lost[i]-1===reserve[j]){
+//     for (let i = 0; i < lost.length; i++) {
+//         for (let j = 0; j < reserve.length; j++) {
+//             if (lost[i] - 1 === reserve[j]) {
 //                 console.log(reserve[j]);
 //                 console.log(lost[i]);
-//                 reserve.splice(j,1);
-//                 lost.splice(i,1);
-//             }else if(lost[i]+1===reserve[j]){
+//                 reserve.splice(j, 1);
+//                 lost.splice(i, 1);
+//             } else if (lost[i] + 1 === reserve[j]) {
 //                 console.log(reserve[j]);
 //                 console.log(lost[i]);
-//                 reserve.splice(j,1);
-//                 lost.splice(i,1);
+//                 reserve.splice(j, 1);
+//                 lost.splice(i, 1);
 //             }
 //         }
 //     }
 //     console.log(lost);
 //     console.log(reserve)
-//     return n-lost.length
+//     return n - lost.length
 
 // }
+console.log(solution(5, [2, 3, 4], [1, 3, 5]));
+console.log(solution(5, [2, 4], [3]));
+console.log(solution(3, [3], [1]))
 
 //다른분 풀이 1 (90으로 통과)
 // function solution(n, lost, reserve) {
@@ -131,6 +144,7 @@ function solution(n, lost, reserve) {
 //     answer-=realLost.length-cnt;
 //     return answer
 // }
+
 //다른분 풀이 2
 // function solution(n, lost, reserve) {
 
@@ -172,7 +186,3 @@ function solution(n, lost, reserve) {
 
 
 
-
-console.log(solution(5, [2, 4], [1, 3, 5]));
-console.log(solution(5, [2, 4], [3]));
-console.log(solution(3, [3], [1]))
