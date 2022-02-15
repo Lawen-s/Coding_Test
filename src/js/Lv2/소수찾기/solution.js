@@ -1,40 +1,33 @@
 function solution(numbers) {
-    let answer = 0;
-    numbers = numbers.split("")
-    // console.log(numbers.join(""));
-    let numArr = [];
-    function makeArr(arr, newArr, num) {
-        let joinNum = newArr.join("");
-        console.log(joinNum)
-        console.log(typeof (Number(joinNum)) === "number")
-        if (joinNum.length !== 0) {
-            numArr.push(Number(joinNum));
-        }
-        if (num === 0) {
-            console.log(newArr);
-            return;
-        }
-        for (let i = 0; i < arr.length; i++) {
-            let choice = arr[i];
-            let deleteNum = arr.slice();
-            deleteNum.splice(i, 1);
-            console.log(deleteNum);
-            makeArr(deleteNum, newArr.concat(choice), num - 1)
-        }
+  let answer = 0;
+  numbers = numbers.split("")
+  let numArr = [];
+  function makeArr(arr, newArr, num) {
+    let joinNum = newArr.join("");
+    if (joinNum.length !== 0) {
+      numArr.push(Number(joinNum));
     }
-    makeArr(numbers, [], numbers.length);
-    newArr = [...new Set(numArr)];
-    console.log(newArr)
-    for (let i = 0; i < newArr.length; i++) {
-        if (newArr[i] === 2 || newArr[i] === 3) {
-            answer++;
-        }
-        if (newArr[i] % 2 !== 0 && newArr[i] % 3 !== 0 && newArr[i] !== 1) {
-            console.log(newArr[i])
-            answer++;
-        }
+    if (num === 0) {
+      return;
     }
-    return answer;
+    for (let i = 0; i < arr.length; i++) {
+      let choice = arr[i];
+      let deleteNum = arr.slice();
+      deleteNum.splice(i, 1);
+      makeArr(deleteNum, newArr.concat(choice), num - 1)
+    }
+  }
+  makeArr(numbers, [], numbers.length);
+  newArr = [...new Set(numArr)];
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] === 2 || newArr[i] === 3) {
+      answer++;
+    }
+    if (newArr[i] % 2 !== 0 && newArr[i] % 3 !== 0 && newArr[i] !== 1) {
+      answer++;
+    }
+  }
+  return answer;
 }
 
 
