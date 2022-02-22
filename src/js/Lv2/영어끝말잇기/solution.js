@@ -29,7 +29,7 @@ function solution(n, words) {
     return answer.length !== 0 ? answer : [0, 0];
 }
 
-//다른 방법
+// 다른 방법
 // function solution(n, words) {
 //     var answer = [0, 0];
 //     // 이미 사용한 단어를 넣을 배열
