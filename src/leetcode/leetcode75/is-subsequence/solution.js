@@ -4,7 +4,7 @@
  */
 
 /**
- * 내가 푼 코드
+ * 내가 푼 코드(효율 X)
  * @param {string} s
  * @param {string} t
  * @return {boolean}
