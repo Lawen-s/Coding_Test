@@ -3,7 +3,8 @@
  */
 
 /**
- * 블로그를 참고함
+ * 블로그를 참고함 (https://m.blog.naver.com/catasy/221330886618)
+ * 거의 보고 따라 씀
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
