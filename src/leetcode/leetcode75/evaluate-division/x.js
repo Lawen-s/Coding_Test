@@ -75,3 +75,46 @@ var calcEquation = function(equations, values, queries) {
 
   return results;
 };
+
+
+
+/**
+ * @param {string[][]} equations
+ * @param {number[]} values
+ * @param {string[][]} queries
+ * @return {number[]}
+ */
+var calcEquation = function(equations, values, queries) {
+  const graph = new Map();
+  for (let i = 0; i < equations.length; ++i) {
+      const [a, b] = equations[i];
+
+      if (!graph.has(a)) graph.set(a, []);
+      graph.get(a).push([b, values[i]])
+
+      if (!graph.has(b)) graph.set(b, []);
+      graph.get(b).push([a, 1 / values[i]]);
+  }
+
+  const visited = new Set();
+  const dfs = (num, den) => {
+      if (visited.has(num) || !graph.has(num) || !graph.has(den)) return -1;
+      visited.add(num);
+
+      for (const [nextDen, value] of graph.get(num)) {
+          if (nextDen === den) return value;
+          let result = dfs(nextDen, den);
+          if (result !== -1) return value * result;
+      }
+
+      return -1;
+  };
+
+  const results = new Array(queries.length);
+  for (let i = 0; i < queries.length; ++i) {
+      visited.clear();
+      results[i] = dfs(queries[i][0], queries[i][1]);
+  }
+
+  return results;
+};
