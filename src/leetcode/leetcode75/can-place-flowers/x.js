@@ -1,4 +1,66 @@
 /**
+ * 문제: https://leetcode.com/problems/can-place-flowers/?envType=study-plan-v2&envId=leetcode-75
+ */
+
+/**
+ * 풀이 확인 (24.01.31)
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    for (let i = 0; i < flowerbed.length && n !== 0; i++) {
+      if (
+        flowerbed[i] === 0 &&
+        flowerbed[i - 1] !== 1 &&
+        flowerbed[i + 1] !== 1
+      ) {
+        n--;
+        i++;
+      }
+    }
+    return n === 0;
+};
+
+
+/**
+ * 24.01.31
+ * 내가 푼 방법(틀림)
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+    let before =flowerbed[0] ;
+    let cur = flowerbed[1];
+    if(n===0||(before===0&&n===1)){
+        return true
+    }
+    for(let i =2;i<flowerbed.length;i++){
+        if(i===2&&before ===0&&cur===0){
+          n-=1
+          flowerbed[i-2]=1;
+        }
+        if(i===flowerbed.length-1&&flowerbed[i]===0&&cur===0){
+            n-=1
+            flowerbed[i]=1
+        }
+        if(before ===0&&cur===0&&flowerbed[i]===0){
+          n-=1
+          flowerbed[i-1]=1;
+        }
+        if(n===0){
+          return true
+        }
+        before=flowerbed[i-1]
+        cur=flowerbed[i]
+    }
+    return false
+  
+  };
+
+
+/**
  * https://leetcode.com/problems/can-place-flowers/?source=submission-noac
  */
 
