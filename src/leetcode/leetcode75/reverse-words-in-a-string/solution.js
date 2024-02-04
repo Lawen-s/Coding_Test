@@ -3,6 +3,19 @@
  */
 
 /**
+ * 품(24.02.04)
+ * @param {string} s
+ * @return {string}
+ */
+var reverseWords = function(s) {
+  let splitStr = s.split(' ');
+  console.log(splitStr)
+  let newArr = splitStr.filter((x)=>x !== '').reverse()
+  return newArr.join(' ')
+};
+
+
+/**
  * @param {string} s
  * @return {string}
  */
@@ -20,3 +33,5 @@ var reverseWords = function(s) {
 };
 
 reverseWords("heel thoe keing")
+console.log(reverseWords("the sky is blue"))
+console.log(reverseWords("  hello world  "))
