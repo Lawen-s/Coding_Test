@@ -1,6 +1,53 @@
 /**
  * https://leetcode.com/problems/increasing-triplet-subsequence/?envType=study-plan-v2&envId=leetcode-75
+ * 24.02.14 - X
  */
+
+/**
+ * 2024-02-14
+ * 통과 X (66/83) - 최대값으로 값들을 비교하는 방식
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var increasingTriplet = function(nums) {
+  let before=nums[0], middle=nums[1], next=nums[2];
+  for(let i =2;i<nums.length;i++){
+      if(before<middle&&middle<next){
+          return true
+      }
+      else{
+          before = middle;
+          middle=next;
+          next=nums[i+1]
+      }
+  }
+  return false
+};
+
+/**
+ * 2024-02-14
+ *  풀이 참고(통과코드)
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var increasingTriplet = function(nums) {
+  let firstNumber = Infinity;
+  let secondNumber = Infinity;
+  console.log(firstNumber)
+  
+  for (let currentNumber of nums) {
+    if (currentNumber > secondNumber && currentNumber > firstNumber) {
+      return true;
+    }
+    if (currentNumber > firstNumber) {
+      secondNumber = currentNumber;
+    } else {
+      firstNumber = currentNumber;
+    }
+  }
+  return false;
+}
+
 
 // 내 코드
 /**
