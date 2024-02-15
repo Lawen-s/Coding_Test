@@ -1,7 +1,39 @@
 /**
  * https://leetcode.com/problems/move-zeroes/submissions/1099354251/?envType=study-plan-v2&envId=leetcode-75
- * 
+ *  2023-11-15 - O
+ *  2024-02-15 - O
  */
+/**
+ * 2024-02-15
+ * 효율 안좋음
+ */
+var moveZeroes = function(nums) {
+    for(let i =0;i<nums.length;i++){
+        for(let j =i+1;j<nums.length;j++){
+            if(nums[i]===0){
+                let char = nums[j];
+                nums[j]=nums[i];
+                nums[i] = char
+            }
+        }
+    }
+    return nums
+};
+/**
+ * 효율 좋음
+ */
+var moveZeroes = function(nums) {
+    let lastNonZero = 0
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            const temp = nums[lastNonZero]
+            nums[lastNonZero] = nums[i]
+            nums[i] = temp
+            lastNonZero++
+        }
+    }
+};
 
 
 
