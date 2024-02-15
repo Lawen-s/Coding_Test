@@ -1,5 +1,61 @@
 /**
  * https://leetcode.com/problems/string-compression/submissions/1098706705/?envType=study-plan-v2&envId=leetcode-75
+ * 2024-02-15 - X
+ *  
+ */
+/**
+ * 2024-02-15
+ * 내가 푼 방식 - 테스트 코드 통과 x, 콘솔에서는 통과 테스트코드에서만 X
+ * @param {character[]} chars
+ * @return {number}
+ */
+var compress = function(chars) {  
+  const result = new Map()
+  for(let char of chars){
+    if(result.has(char)){
+      result.set(char,result.get(char)+1)
+    }else{
+      result.set(char,1)
+    }
+  }
+  let newResult = ''
+  result.forEach((v,k)=>{
+  if(v===1){
+    newResult+=k
+  }else{
+    newResult+=k+String(v)
+  }
+  })
+  return newResult.split('')
+};
+/**
+ * 2024-02-15
+ * 풀이를 참고
+ * @param {character[]} chars
+ * @return {number}
+ */
+const compress = (chars) => {
+  let index = 0
+  for (let i = 0; i < chars.length; i++) {
+    let count = 1
+    while (i + 1 < chars.length && chars[i] === chars[i + 1]) {
+      count++
+      i++
+    }
+    chars[index++] = chars[i]
+    if (count > 1) {
+      let countStr = count.toString()
+      for (let j = 0; j < countStr.length; j++) {
+        chars[index++] = countStr[j]
+      }
+    }
+  }
+  return index
+}
+
+
+
+/**
  * 내가 풀었던 부분(통과 안됨)
  * @param {character[]} chars
  * @return {number}
