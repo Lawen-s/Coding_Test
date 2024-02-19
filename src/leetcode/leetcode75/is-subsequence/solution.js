@@ -1,9 +1,54 @@
 /**
  * https://leetcode.com/problems/is-subsequence/submissions/1099374291/?envType=study-plan-v2&envId=leetcode-75
- * 
+ *  2023-11-15 - O
+ *  2024-02-19 - O
  */
 
 /**
+ * 2024-02-19 - 내가 푼 코드
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+  let sSplit = s.split('');
+  let tSplit = t.split('');
+  let num= 0 
+  let cnt = 0
+for(let i = 0; i < sSplit.length; i++) {
+  for(let j = num; j < tSplit.length; j++) {
+    if(tSplit[j]===sSplit[i]) {
+      num=j+1;
+      cnt ++;
+      break;
+    }
+  }
+}
+return cnt === sSplit.length ? true : false;
+};
+
+/**
+ * 효율 좋은 코드
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+  if (s.length > t.length) return false; 
+  var currentPosition = 0;
+  for (let ch of t) {
+      if (ch === s[currentPosition]) {
+          currentPosition++;
+      }
+  }
+
+  return currentPosition === s.length;
+};
+
+
+
+/**
+ * 2023-11-15
  * 내가 푼 코드(효율 X)
  * @param {string} s
  * @param {string} t
