@@ -1,8 +1,26 @@
 /**
  * https://leetcode.com/problems/max-number-of-k-sum-pairs/submissions/1101968121/?envType=study-plan-v2&envId=leetcode-75 
- *
+ * 23-11-19 - X
+ * 24-02-20 - X
  */
 
+/**
+ * 24-02-20 - X -  풀이 보고 이해
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var maxOperations = function(nums, k) {
+  let result =0, i=0,j=nums.length-1;
+  nums.sort((x,y)=> x-y)
+  while(i<j){
+    let add = nums[i] + nums[j];
+    if(add<k) i++;
+    else if(add>k) j--;
+    else result++,i++,j--;
+  }
+  return result;
+};
 
 
 /**
