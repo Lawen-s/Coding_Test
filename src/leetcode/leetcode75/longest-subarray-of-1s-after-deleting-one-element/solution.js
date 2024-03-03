@@ -1,6 +1,55 @@
 /**
  * https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/submissions/1103493649/?envType=study-plan-v2&envId=leetcode-75
+ * 24-02-28 - X
+ * 23-11-21 - O
  */
+
+/**
+ * 내가 푼 코드
+ * 24-02-28 - X 
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestSubarray = function(nums) {
+  let left = 0, right=nums.length, count = 0,remove=1;
+  while(left<right){
+    if(nums[left]===1){
+      count++
+      left++;
+    }else{
+      left++;
+      if(remove===0){
+        remove =1;
+        count--;
+      }else{
+        remove--;
+      }
+    }
+  }
+  return count===right?count-1:count;
+};
+
+/**
+ * 풀이 봄
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestSubarray = function(nums) {
+  let zeroCount = 0;
+  let longestWindow = 0;
+  let start = 0;
+  for (let i = 0; i < nums.length; i++) {
+      zeroCount += (nums[i] === 0 ? 1 : 0);
+      while (zeroCount > 1) {
+          zeroCount -= (nums[start] === 0 ? 1 : 0);
+          start++;
+      }
+      longestWindow = Math.max(longestWindow, i - start);
+  }
+  return longestWindow;
+};
+
+
 
 /**
  * 유튜브 참고 https://www.youtube.com/watch?v=jhBrybXSFTs
