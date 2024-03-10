@@ -1,8 +1,33 @@
 /**
  * https://leetcode.com/problems/find-the-difference-of-two-arrays/submissions/1103529299/?envType=study-plan-v2&envId=leetcode-75
- */
+ * 24-03-10 - O
+ * 23-11-22 - O 
+*/
 
 /**
+ * 24-03-10 - O - 내가 푼 코드(효율 X)
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[][]}
+ */
+var findDifference = function(nums1, nums2) {
+  let arr1 = [];
+  let arr2 = [];
+  let length = nums1.length>nums2.length?nums1.length:nums2.length;
+  for(let i = 0; i < length; i++) {
+    if(!nums2.includes(nums1[i])&&nums1[i]!==undefined){
+      if(!arr1.includes(nums1[i])) arr1.push(nums1[i])
+    }
+    if(!nums1.includes(nums2[i])&&nums2[i]!==undefined){
+      if(!arr2.includes(nums2[i])) arr2.push(nums2[i])
+    }
+  }
+  return [arr1,arr2]
+};
+
+
+/**
+ * 23-11-22
  * 내가 푼 코드(효율 안좋음) - 우선 푸는 목적으로
  * @param {number[]} nums1
  * @param {number[]} nums2
