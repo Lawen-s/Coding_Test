@@ -1,8 +1,38 @@
 /**
  * https://leetcode.com/problems/determine-if-two-strings-are-close/submissions/1104882939/?envType=study-plan-v2&envId=leetcode-75
+ * 24-03-14 - X
+ * 23-11-23 - X
  */
 
 /**
+ * 24-03-14 - X - 풀이를 보고 이해
+ * @param {string} word1
+ * @param {string} word2
+ * @return {boolean}
+ */
+var closeStrings = function(word1, word2) {
+  if (word1 == word2) {
+      return true;
+  }
+
+  if (word1.length !== word2.length) {
+      return false;
+  }
+
+  const map1 = new Map();
+  const map2 = new Map();
+
+  for(let i = 0; i < word1.length; i++) {
+      map1.set(word1[i], (map1.get(word1[i]) || 0) + 1);
+      map2.set(word2[i], (map2.get(word2[i]) || 0) + 1);
+  }
+
+  return [...map1.keys()].sort().join('') ===[...map2.keys()].sort().join('') 
+  && [...map1.values()].sort().join('') === [...map2.values()].sort().join('')
+};
+
+/**
+ * 23-11-23 - X
  * 내가 푼 코드 효율 X(블로그를 보고 풀이의 이해도를 높임)
  * 참고 블로그 1. https://withhamit.tistory.com/521
  * 참고 블로그 2. https://velog.io/@hozzijeong/LeetCode-Determine-if-Two-Strings-Are-Close
