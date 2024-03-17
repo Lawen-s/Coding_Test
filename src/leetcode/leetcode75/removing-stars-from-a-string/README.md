@@ -8,7 +8,7 @@
 * 23-11-28 - O
 
 # 문제 설명
-* 원문
+#### 원문
 
 
 You are given a string s, which contains stars *.
@@ -36,7 +36,7 @@ It can be shown that the resulting string will always be unique.
 ***
 
 # EXAMPLES
-* Example 1.
+#### Example 1.
 
 
 Input: s = "leet**cod*e"
@@ -55,7 +55,7 @@ Explanation: Performing the removals from left to right:
 
 There are no more stars, so we return "lecoe".
 
-* Example 2.
+#### Example 2.
 
 
 Input: s = "erase*****"
