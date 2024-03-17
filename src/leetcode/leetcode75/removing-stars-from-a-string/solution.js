@@ -1,6 +1,21 @@
 /**
  * https://leetcode.com/problems/removing-stars-from-a-string/submissions/1108130867/?envType=study-plan-v2&envId=leetcode-75
+ * 24-03-17 - O
+ * 23-11-28 - O
  */
+
+/**
+ * 24-03-17 - O - 효율 좋지 않음
+ * @param {string} s
+ * @return {string}
+ */
+var removeStars = function(s) {
+  return s.split('').reduce((acc,cur,i)=>{
+    if(cur==='*') return acc.slice(0,acc.length-1)
+    else return acc+=cur
+  },'')
+
+};
 
 /**
  * @param {string} s
