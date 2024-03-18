@@ -2,9 +2,37 @@
  * https://leetcode.com/problems/asteroid-collision/submissions/1108156540/?envType=study-plan-v2&envId=leetcode-75
  */
 
-// 풀지 못하고 블로그 참고
+/**
+ * 24-03-18 - X - 풀이보고 이해
+ * @param {number[]} asteroids
+ * @return {number[]}
+ */
+var asteroidCollision = function(asteroids) {
+  const stack = []
+  
+  for (let i = 0; i < asteroids.length; i++) {
+      const last = stack[stack.length - 1]
+      const curr = asteroids[i]
+      
+      if (!stack.length || last < 0 || curr > 0) {
+          // stack is empty and last and curr not colliding
+          stack.push(curr)
+      } else if (last + curr === 0) {
+          // last and curr collide and cancel each other out
+          stack.pop()
+      } else if (Math.abs(last) < Math.abs(curr)) {
+          // last and curr collide and last is smaller
+          stack.pop()
+          i--
+      }
+  }
+  
+  return stack
+};
+
 
 /**
+ * 23-11-28 - X
  * 효율 중간인 답안
  * @param {number[]} asteroids
  * @return {number[]}
