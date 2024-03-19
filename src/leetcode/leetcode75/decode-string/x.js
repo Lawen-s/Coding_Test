@@ -2,7 +2,37 @@
  * https://leetcode.com/problems/decode-string/submissions/1108192700/?envType=study-plan-v2&envId=leetcode-75
  */
 
+/** 24-03-19 - X 
+ * @param {string} s
+ * @return {string}
+ */
+var decodeString = function(s) {
+  let stack = [];
+  let currStr = '';
+  let currNum = 0;
+  
+  for (let i = 0; i < s.length; i ++) {
+      if (s[i] === '[') {
+          stack.push(currStr);
+          stack.push(currNum);
+          currStr = '';
+          currNum = 0;
+      } else if (s[i] === ']') {
+          let prevNum = stack.pop();
+          let prevStr = stack.pop();
+          currStr = prevStr + currStr.repeat(prevNum);
+      } else if (s[i] >= '0' && s[i] <= '9') {
+        currNum = currNum * 10 + Number(s[i]);
+      } else {
+          currStr += s[i];
+      }
+  }
+  
+  return currStr; 
+};
+
 /**
+ * 23-11-28 - X
  * 통과 실패 테스트 케이스 2번에서 에러를 겪음
  * @param {string} s
  * @return {string}
