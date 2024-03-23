@@ -1,15 +1,30 @@
 /**
  * https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/submissions/1141514240/?envType=study-plan-v2&envId=leetcode-75
+ * 24-03-23 - X
+ * 24-01-09 - X
+*/
+/**
+ * 24-03-23 - X
+ * 풀이를 보고 이해(새로운 배열이나, 필터를 사용하면 안됨)
  */
+var deleteMiddle = function(head) {
+  let slow = fast = head;
+  let prev = null;
+
+  while (fast && fast.next) {
+    prev = slow;
+      slow = slow.next;
+      fast = fast.next.next;
+  }
+
+  if (!prev) return null;
+  prev.next = slow.next;
+  return head;
+};
+
 
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
+ * 24-01-09 - X
  * 풀이를 보고 이해
  * @param {ListNode} head
  * @return {ListNode}
@@ -61,3 +76,8 @@ var deleteMiddle = function(head) {
 
   return head;
 };
+
+
+// console.log(deleteMiddle([1,3,4,7,1,2,6]))
+// console.log(deleteMiddle([1,2,3,4]))
+// console.log(deleteMiddle([2,1]))
