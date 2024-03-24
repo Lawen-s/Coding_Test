@@ -1,6 +1,28 @@
 /**
  * https://leetcode.com/problems/odd-even-linked-list/submissions/1141525550/?envType=study-plan-v2&envId=leetcode-75
+ * 24-03-24 - X
+ * 24-01-09 - X
  */
+
+/**
+ * 24-03-24 - X
+ * @param {*} head 
+ * @returns 
+ */
+var oddEvenList = function(head) {
+  if(head != null){
+        
+    let odd = head, even = head.next, evenHead = even;
+    while(even && even.next != null){
+        odd.next = even.next;
+    odd = odd.next;
+    even.next = odd.next;
+    even = even.next;
+    }
+    odd.next = evenHead;
+}
+return head;
+};
 
 /**
  * 풀이보고 이해
