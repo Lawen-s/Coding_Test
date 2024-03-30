@@ -1,9 +1,32 @@
 /**
  * https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions/34445/my-solution-in-javascript/?envType=study-plan-v2&envId=leetcode-75
+ * 24-03-30 - X
+ * 23-12-01 - X
  */
 
 /**
- *
+ * 24-03-30 - X - 풀이보고 이해
+ * @param {*} root 
+ * @returns 
+ */
+var maxDepth=function(root){
+  if (!root) return 0;
+  const queue = [root];
+  let depth = 0;
+  while (queue.length !== 0) {
+      depth++;
+      const len = queue.length;
+      for (let i = 0; i < len; i++) {
+          if (queue[i].left) queue.push(queue[i].left);
+          if (queue[i].right) queue.push(queue[i].right);
+      }
+      queue.splice(0, len);
+  }
+  return depth;
+}
+
+/**
+ * 24-12-01 - X
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
  *     this.val = (val===undefined ? 0 : val)
