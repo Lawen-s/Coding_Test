@@ -1,6 +1,35 @@
 /**
  * https://leetcode.com/problems/leaf-similar-trees/submissions/1111485809/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-07 - X
+ * 23-12-03 - X
  */
+
+/**
+ * 24-04-07 - X - 풀이를 참고하여 풀었음, 마지막 예외케이스가 하나 존재.
+ * @param {*} root1 
+ * @param {*} root2 
+ * @returns 
+ */
+var leafSimilar = function(root1, root2) {
+  let root1Arr = [];
+  let root2Arr = [];
+  dfs(root1,root1Arr)
+  dfs(root2,root2Arr)
+  return (root1Arr.length===root2Arr.length&&root1Arr.every((v,i)=>v==root2Arr[i]))
+};
+
+var dfs=(root, leaf) =>{
+if(root==null){
+  return false;
+}
+if(root.left ==null && root.right==null){
+  leaf.push(root.val);
+  return false;
+}
+dfs(root.left,leaf)
+dfs(root.right, leaf)
+}
+
 
 /**
  * 블로그를 참고함 (https://m.blog.naver.com/catasy/221330886618)
