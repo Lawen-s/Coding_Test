@@ -1,6 +1,32 @@
 /**
  * https://leetcode.com/problems/count-good-nodes-in-binary-tree/submissions/1111504574/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-15 - O
+ * 23-12-03 - O 
  */
+
+/**
+ * 24-04-15 - O
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var goodNodes = function(root) {
+  let count = 0;
+
+  function dfs(node, max){
+    if(node === null){
+      return
+    }
+    if(node.val >=max){
+      count++;
+      max = node.val;
+    }
+    dfs(node.left, max)
+    dfs(node.right, max)
+  }
+  dfs(root,root.val)
+  return count
+};
+
 
 /**
  * Definition for a binary tree node.
