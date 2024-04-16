@@ -1,4 +1,4 @@
-# 872.Count-Good-Nodes-In-Binary-Tree
+# 1448.Count-Good-Nodes-In-Binary-Tree
 
 # 링크
 [leetcode.1448](https://leetcode.com/problems/count-good-nodes-in-binary-tree/?envType=study-plan-v2&envId=leetcode-75)

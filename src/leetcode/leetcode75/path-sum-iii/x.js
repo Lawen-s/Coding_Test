@@ -1,6 +1,39 @@
 /**
  * https://leetcode.com/problems/path-sum-iii/submissions/1112208129/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-16 - X
+ * 23-12-04 - X
  */
+
+/**
+ * 24-04-16 - X - 풀이보고 대략적으로 이해
+ * @param {TreeNode} root
+ * @param {number} targetSum
+ * @return {number}
+ */
+var pathSum = function(root, targetSum) {
+  let count = 0;
+  let map = {};
+  function dfs(node, sum){
+      if(!node){
+          return null
+      }
+      sum +=node.val;
+      if(sum===targetSum){
+          count++;
+      }
+      if(map[sum-targetSum]) {count += map[sum-targetSum]}
+      if(map[sum]){
+          map[sum]++;
+      }else{
+          map[sum] = 1;
+      }
+      dfs(node.left,sum)
+      dfs(node.right,sum)
+      map[sum]--;
+  }
+  dfs(root,0)
+  return count;
+};
 
 /**
  * Definition for a binary tree node.
@@ -11,6 +44,7 @@
  * }
  */
 /**
+ * 23-12-04 - X
  * 풀이 블로그 참고
  * https://medium.com/nerd-for-tech/leetcode-path-sum-iii-84503ab5b050
  * @param {TreeNode} root
