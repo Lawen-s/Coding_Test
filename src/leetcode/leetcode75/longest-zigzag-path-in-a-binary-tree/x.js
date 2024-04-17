@@ -1,6 +1,37 @@
 /**
  * https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/submissions/1112235086/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-17 - X
+ * 23-12-05 - X
  */
+
+/** 
+ * 24-04-17 - X - 풀이 보고 이해
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var longestZigZag = function(root) {
+  if(!root) return 0
+
+  let maxZigZag = 0
+
+  function dfs(node, isLeft, length){
+      if(!node) return;
+
+      maxZigZag = Math.max(maxZigZag, length);
+
+      if(isLeft){
+          dfs(node.right, false , length + 1)
+           dfs(node.left, true , 1)
+      }else{
+          dfs(node.left, true, length + 1);
+
+          dfs(node.right,false, 1)
+      }
+  }
+  dfs(root, true, 0)
+   dfs(root, false, 0)
+   return  maxZigZag
+};
 
 /**
  * Definition for a binary tree node.
@@ -11,6 +42,7 @@
  * }
  */
 /**
+ * 23-12-05 - X
  *  내가 풀려고 했던 방식
  *  테스트 통과 못함(접근방식 변경 필요)
  * @param {TreeNode} root
