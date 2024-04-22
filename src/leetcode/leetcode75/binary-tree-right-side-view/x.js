@@ -1,6 +1,27 @@
 /**
  * https://leetcode.com/problems/binary-tree-right-side-view/submissions/1112945244/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-22 - X
+ * 23-12-05 - X
  */
+
+/** 24-04-22 - X - 풀이 보고 이해
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var rightSideView = function(root) {
+  let arr = [];
+  function dfs(node,n){
+      if(!node){
+          return
+      }
+      arr[n]=node.val
+      dfs(node.left,n+1)
+      dfs(node.right,n+1)
+  }
+  dfs(root,0)
+  return arr
+};
+
 
 /**
  * Definition for a binary tree node.
