@@ -1,6 +1,31 @@
 /**
  * https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/submissions/1117239284/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-22 - X
+ * 23-12-11 - X
  */
+
+/**
+ * 24-04-22 - X - 기존에 풀었던 방식 참고해서 품
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxLevelSum = function(root) {
+  let arr = [];
+  function bfs(node, num){
+      if(!node){
+          return
+      }
+      if(arr[num]){
+      arr[num] += node.val
+      }else{
+          arr[num] = node.val
+      }
+      bfs(node.right,num+1)
+      bfs(node.left,num+1)
+  }
+  bfs(root,0)
+  return arr.indexOf(Math.max(...arr))+1;
+};
 
 /**
  * Definition for a binary tree node.
