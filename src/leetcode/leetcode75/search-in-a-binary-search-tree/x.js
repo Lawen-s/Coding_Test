@@ -1,6 +1,27 @@
 /**
  * https://leetcode.com/problems/search-in-a-binary-search-tree/submissions/1117262168/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-23 - X
+ * 23-12-11 - X
  */
+
+/**
+ * 24-04-23 - X
+ * @param {TreeNode} root
+ * @param {number} val
+ * @return {TreeNode}
+ */
+var searchBST = function(root, val) {
+  function bfs(node){
+      if(!node) return null;
+      if(node.val === val){
+          return node
+
+      }
+      if(node.val > val) return bfs(node.left)
+      if(node.val< val) return bfs(node.right)
+  }
+  return bfs(root)
+};
 
 /**
  * Definition for a binary tree node.
@@ -11,7 +32,7 @@
  * }
  */
 /**
- * 풀이 참고
+ * 23-12-11 - X - 풀이 참고
  * @param {TreeNode} root
  * @param {number} val
  * @return {TreeNode}
