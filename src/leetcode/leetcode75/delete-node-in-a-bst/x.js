@@ -1,6 +1,32 @@
 /**
  * https://leetcode.com/problems/delete-node-in-a-bst/submissions/1118097323/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-24 - X
+ * 23-12-12 - X
  */
+/**
+ * 24-04-24 - X - 풀이 봄
+ * @param {*} root 
+ * @param {*} key 
+ * @returns 
+ */
+var deleteNode = function(root, key) {
+  function callDFS(node) {
+      if(!node) return null;
+      if(node.val === key) {
+          if(!node.left) return node.right;
+          if(!node.right) return node.left;
+          let curr = node.right;
+          while(curr.left) curr = curr.left;
+          curr.left = node.left;
+          return node.right;
+      }
+      if(key > node.val) node.right = callDFS(node.right);
+      else node.left = callDFS(node.left);
+      return node;
+  }
+  return callDFS(root)
+};
+
 
 /**
  * Definition for a binary tree node.
