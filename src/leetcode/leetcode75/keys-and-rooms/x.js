@@ -1,8 +1,32 @@
 /**
- *  https://leetcode.com/problems/keys-and-rooms/submissions/1118113645/?envType=study-plan-v2&envId=leetcode-75
+ * https://leetcode.com/problems/keys-and-rooms/submissions/1118113645/?envType=study-plan-v2&envId=leetcode-75
+ * 24-04-28 - X
+ * 23-12-12 - X
  */
 
 /**
+ * 24-04-28 - X - 풀이 참고
+ * @param {number[][]} rooms
+ * @return {boolean}
+ */
+var canVisitAllRooms = function(rooms) {
+  let check = new Set()
+  check.add(0)
+  function dfs(node){
+      node.forEach((key)=>{
+          if(!check.has(key)){
+              check.add(key)
+              dfs(rooms[key])
+          }
+      })
+  }
+  dfs(rooms[0])
+  return check.size === rooms.length
+};
+
+
+/**
+ * 23-12-12 - X
  * 풀이를 보고 이해
  * @param {number[][]} rooms
  * @return {boolean}
