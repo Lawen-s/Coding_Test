@@ -1,8 +1,51 @@
 /**
  * https://leetcode.com/problems/evaluate-division/?envType=study-plan-v2&envId=leetcode-75
+ * 24-05-18 - X
+ * 23-12-14 - X 
  */
 
 /**
+ * 24-05-18 - X - 풀이 보고 이해
+ * @param {*} equations 
+ * @param {*} values 
+ * @param {*} queries 
+ * @returns 
+ */
+var calcEquation = function(equations, values, queries) {
+	const map = equations.reduce((result, [a, b], index) => {
+		const value = values[index];
+		const valueA = result.get(a) ?? [];
+		const valueB = result.get(b) ?? [];
+
+		valueA.push([b, value]);
+		valueB.push([a, 1 / value]);
+		result.set(a, valueA);
+		result.set(b, valueB);
+		return result;
+	}, new Map());
+
+	const dfs = ([a, b], visited = new Set(), current = 1) => {
+		if (!map.has(a) || !map.has(b)) return -1;
+		if (a === b) return current;
+		const values = map.get(a);
+		visited.add(a);
+
+		for (const [key, value] of values) {
+			if (visited.has(key)) continue;
+			const nextValue = current * value;
+
+			const result = dfs([key, b], visited, nextValue);
+			if (result !== null) return result;
+		}
+		return null;
+	};
+
+	return queries.map(item => dfs(item) ?? -1);
+};
+
+
+/**
+ * 23-12-14 - X
  * 이해가 잘 안되지만 일단 50% 정도 이해는 감
  * @param {string[][]} equations
  * @param {number[]} values
