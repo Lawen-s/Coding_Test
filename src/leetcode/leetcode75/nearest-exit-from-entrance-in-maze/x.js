@@ -1,8 +1,36 @@
 /**
  * https://leetcode.com/problems/nearest-exit-from-entrance-in-maze/submissions/1120923213/?envType=study-plan-v2&envId=leetcode-75
+ * 24-05-20 - X
+ * 23-12-16 - X
  */
 
 /**
+ * 24-05-20 - X - 풀이보고 이해
+ * @param {character[][]} maze
+ * @param {number[]} entrance
+ * @return {number}
+ */
+var nearestExit = function(maze, entrance) {
+    let [y0,x0] = entrance;
+    maze[y0][x0] = '@';
+    const queue = [[y0, x0, 0]]
+    while (queue.length) {
+        const [y, x, step] = queue.shift()
+        for (const [dy, dx] of [[-1, 0], [0, -1], [1, 0], [0, 1]]) {
+            const ny = y + dy, nx = x + dx
+            if (!maze[ny]?.[nx]) {
+                if (step) return step
+            } else if (maze[ny][nx] === '.') {
+                queue.push([ny, nx, step + 1])
+                maze[ny][nx] = '*'
+            }
+        }
+    }
+    return -1
+};
+
+/**
+ * 23-12-16 - X
  * BFS 문제 풀이 참고
  * @param {character[][]} maze
  * @param {number[]} entrance
