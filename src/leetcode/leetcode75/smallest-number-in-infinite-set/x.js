@@ -1,6 +1,37 @@
 /**
  * https://leetcode.com/problems/smallest-number-in-infinite-set/solutions/3453137/simple-and-fast-solution-ts-js/?envType=study-plan-v2&envId=leetcode-75
+ * 24-06-03 - X
+ * 23-12-17 - X
  */
+
+
+/**
+ * 24-06-03 - X
+ */
+var SmallestInfiniteSet = function() {
+  this.arr = Array(1001).fill(true);
+};
+
+/**
+* @return {number}
+*/
+SmallestInfiniteSet.prototype.popSmallest = function() {
+  for (let i = 1; i < this.arr.length; i++) {
+    if (this.arr[i]) {
+      this.arr[i] = false;
+      return i;
+    }
+  }
+  return null;
+};
+
+/** 
+* @param {number} num
+* @return {void}
+*/
+SmallestInfiniteSet.prototype.addBack = function(num) {
+  this.arr[num] = true;
+};
 
 
 /**
