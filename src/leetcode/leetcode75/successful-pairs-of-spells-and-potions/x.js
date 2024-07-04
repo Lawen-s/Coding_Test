@@ -2,6 +2,29 @@
  * https://leetcode.com/problems/successful-pairs-of-spells-and-potions/description/?envType=study-plan-v2&envId=leetcode-75
  */
 
+/**
+ * 24-07-04 - X -테스트 케이스 1개를 통과 안됨
+ */
+var successfulPairs = function(spells, potions, success) {
+  let arr = [];
+  let sortedPotions = potions.sort();
+  for(let i =0;i<spells.length;i++){
+      let left = 0;
+      let right = sortedPotions.length-1;
+      while(left<=right){
+          let mid = Math.floor((left+right)/2);
+          if(spells[i]*sortedPotions[mid]>=success){
+              right=mid-1;
+          }else{
+              left=mid+1;
+          }
+      }
+      let count = sortedPotions.length-left;
+      arr.push(count);
+  }
+  return arr;
+}
+
 
 /**
  * 
