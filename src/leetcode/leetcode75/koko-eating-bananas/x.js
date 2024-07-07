@@ -1,8 +1,34 @@
 /**
  * https://leetcode.com/problems/koko-eating-bananas/submissions/1123469317/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-07 - O
+ * 23-12-19 - X
  */
 
+
 /**
+ * 24-07-07 - O - 블로그에서 힌트를 얻고 해결
+ * 블로그 - https://velog.io/@zerone/LC-875.-Koko-Eating-Bananas
+ */
+var minEatingSpeed = function(piles, h) {
+    let maxPile = Math.max(...piles);
+    let minPile = 1;
+    let minPileArr=[];
+    while(minPile<=maxPile){
+        let midPile = Math.floor((maxPile+minPile)/2);
+       let sumEatingInHour = piles.reduce((acc,cur)=>acc+Math.ceil(cur/midPile),0);
+       if(sumEatingInHour<=h){
+           maxPile=midPile-1;
+           minPileArr.push(midPile);
+       }else{
+           minPile=midPile+1;
+       }
+    }
+    return Math.min(...minPileArr)
+};
+
+
+/**
+ * 23-12-19 - X
  * 효율 좋은 코드
  * @param {number[]} piles
  * @param {number} h
