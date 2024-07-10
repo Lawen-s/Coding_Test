@@ -1,6 +1,30 @@
 /**
  * https://leetcode.com/problems/combination-sum-iii/submissions/1124253942/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-10 - X
+ * 23-12-20 - X
  */
+
+/**
+ * 24-07-10 - X
+ * @param {number} k
+ * @param {number} n
+ * @return {number[][]}
+ */
+var combinationSum3 = function(k, n) {
+    let newArr =[];
+    function dfs(arr,sum,startNum){
+        if(arr.length===k){
+            if(sum===n) newArr.push(arr);
+            return
+        }else{
+            for(let i=startNum;i<=9;i++){
+                dfs([...arr,i],sum+i,i+1);
+            }
+        }
+    }
+    dfs([],0,1)
+    return newArr
+};
 
 /**
  * 중간까지 비슷한 형식이였지만, 풀이를 참고하여 풀음
