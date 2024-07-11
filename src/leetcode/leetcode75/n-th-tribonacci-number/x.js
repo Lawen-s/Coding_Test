@@ -1,9 +1,30 @@
 /**
  * https://leetcode.com/problems/n-th-tribonacci-number/submissions/1124281231/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-11 - O
+ * 23-12-20 - X
  */
 
 /**
- * 
+ * 24-07-11 - O
+ * @param {*} n 
+ * @returns 
+ */
+var tribonacci = function(n) {
+  const numObj = {
+      0:0,
+      1:1,
+      2:1,
+  }
+  if(n>2){
+      for(let i=3;i<=n;i++){
+          numObj[i]=numObj[i-1]+numObj[i-2]+numObj[i-3]
+      }
+  }
+  return numObj[n]
+};
+
+/**
+ * 23-12-20 - X
  * 내가 푼 방식
  * @param {number} n
  * @return {number}
