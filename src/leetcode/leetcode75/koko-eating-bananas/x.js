@@ -1,8 +1,37 @@
 /**
  * https://leetcode.com/problems/koko-eating-bananas/submissions/1123469317/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-11 - O
  * 24-07-07 - O
  * 23-12-19 - X
  */
+
+/**
+ * 24-07-11 - O
+ * @param {number[]} piles
+ * @param {number} h
+ * @return {number}
+ */
+var minEatingSpeed = function(piles, h) {
+    let min = 1;
+    let max = Math.max(...piles);
+    let arr = [];
+    while(min<=max){
+        let mid = Math.floor((max+min)/2);
+        let sum = 0;
+        for(let i=0;i<piles.length;i++){
+            sum+=Math.ceil((piles[i]/mid))
+        }
+        if(sum<=h){
+            max=mid-1;
+            arr.push(mid);
+        }else{
+            min=mid+1;
+        }
+        
+    }
+    return Math.min(...arr);
+};
+
 
 
 /**
