@@ -5,6 +5,45 @@
  */
 
 /**
+ * 24-07-14 - O
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findPeakElement = function(nums) {
+  let max = 0;
+   let index = 0;
+   if(nums.length<=1){
+       return index;
+   }
+   if(nums.length<=2){
+       let p = nums[0];
+       let n = nums[1];
+       
+       return p>n?0:1;
+   }
+   
+   
+   for(let i =1; i<nums.length;i++){
+       let before =nums[i-1];
+       let present = nums[i];
+       let next =nums[i+1];
+       if(before<present&&next<present&&max<present){
+           max= present;
+           index=i;
+       }
+       if(before<next&&present<next&&max<next){
+           max = next
+           index=i+1
+       }
+       if(before>present&&before>next&&max<before){
+           max=before;
+           index=i-1;
+       }
+   }
+   return index
+};
+
+/**
  * 24-07-06 - O
  * @param {number[]} nums
  * @return {number}
