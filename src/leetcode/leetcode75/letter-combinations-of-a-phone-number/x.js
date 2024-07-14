@@ -1,9 +1,44 @@
 /**
  * https://leetcode.com/problems/letter-combinations-of-a-phone-number/submissions/1123482159/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-14 - O
  * 24-07-11 - X
  * 24-07-09 - X
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-14 - O
+ */
+const phoneNumberStr = {
+    2:'abc',
+    3:'def',
+    4:'ghi',
+    5:'jkl',
+    6:'mno',
+    7:'pqrs',
+    8:'tuv',
+    9:'wxyz'
+}
+
+var letterCombinations = function(digits) {
+    let arr = [];
+    if(digits.length<1){
+        return [];
+    }
+    const bfs =(str,count)=>{
+        if(digits.length===count){
+            arr.push(str);
+            return
+        }
+        let someStr = phoneNumberStr[digits[count]]
+        for(let i=0;i<someStr.length;i++){
+            bfs(str+someStr[i],count+1);
+        }
+    }
+    bfs("",0);
+    return arr; 
+    
+};
 
 
 const phoneNumber = {
