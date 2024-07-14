@@ -1,9 +1,33 @@
 /**
  * https://leetcode.com/problems/combination-sum-iii/submissions/1124253942/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-14 - O
  * 24-07-11 - X
  * 24-07-10 - X
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-14 - O
+ * @param {*} k 
+ * @param {*} n 
+ * @returns 
+ */
+var combinationSum3 = function(k, n) {
+    let arr = [];
+    const bfs =(numArr,sum,startIdx)=>{
+        if(sum===n&&numArr.length===k){
+            arr.push(numArr);
+            return;
+        }else{
+            for(let i =startIdx;i<=9;i++){
+                bfs([...numArr,i],sum+i,i+1);
+            }
+        }
+        
+    }
+    bfs([],0,1)
+    return arr;
+};
 
 /**
  * 24-07-11 - X - 반복문에서 9로 제한하지 않으면 타임에러 발생
