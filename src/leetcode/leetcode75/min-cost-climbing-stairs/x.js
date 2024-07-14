@@ -1,9 +1,34 @@
 /**
  * https://leetcode.com/problems/min-cost-climbing-stairs/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-14 - X
+ * 23-12-20 - X
  */
 
 /**
+ * 24-07-14 - X
+ * @param {*} cost 
+ * @returns 
+ */
+var minCostClimbingStairs = function(cost) {
+    if (cost.length === 1) return 0;
+    if (cost.length === 2) return Math.min(cost[0], cost[1]);
+    let first = cost[1]; //1
+    let second = cost[0];//100
+    for(let i =2;i<cost.length;i++){
+        const minCost = cost[i] + Math.min(first, second);
+        console.log({minCost})
+        console.log({first})
+        console.log({second})
+        console.log('@@@@@')
+        second = first;//1
+        first = minCost;//2
+    }
+    return Math.min(first,second);
+};
+
+/**
  * 풀이를 보고 이해한 방식
+ * 23-12-20 - X
  * @param {number[]} cost
  * @return {number}
  */
