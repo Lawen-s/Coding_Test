@@ -4,6 +4,7 @@
 [leetcode.875](https://leetcode.com/problems/koko-eating-bananas/submissions/1123469317/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-14 - O
 * 24-07-11 - O
 * 24-07-07 - O
 * 23-12-19 - X
