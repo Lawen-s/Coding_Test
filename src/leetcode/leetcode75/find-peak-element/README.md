@@ -4,6 +4,7 @@
 [leetcode.162](https://leetcode.com/problems/find-peak-element/description/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-16 - X
 * 24-07-14 - O
 * 24-07-06 - O
 * 23-12-19 - X
