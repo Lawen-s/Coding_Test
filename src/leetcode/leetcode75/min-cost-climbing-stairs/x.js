@@ -1,8 +1,25 @@
 /**
  * https://leetcode.com/problems/min-cost-climbing-stairs/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-16 - X
  * 24-07-14 - X
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-16 - X
+ * @param {*} cost 
+ * @returns 
+ */
+var minCostClimbingStairs = function(cost) {
+    let oneStep = cost[0];
+    let twoStep = cost[1];
+    for(let i =2;i<cost.length;i++){
+        let stepCost = cost[i]+Math.min(oneStep,twoStep);
+        oneStep=twoStep;
+        twoStep=stepCost;
+    }
+    return Math.min(oneStep,twoStep);
+};
 
 /**
  * 24-07-14 - X
