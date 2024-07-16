@@ -1,10 +1,35 @@
 /**
  * https://leetcode.com/problems/letter-combinations-of-a-phone-number/submissions/1123482159/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-16 - X
  * 24-07-14 - O
  * 24-07-11 - X
  * 24-07-09 - X
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-16 - X
+ * @param {*} digits 
+ * @returns 
+ */
+var letterCombinations = function(digits) {
+    if(digits.length<1){
+        return []
+    }
+        let arr =[];
+        function dfs(str,count){
+            if(count===digits.length){
+                arr.push(str);
+                return
+            }
+            let someStr = phoneNumber[digits[count]];
+            for(let i=0;i<someStr.length;i++){
+                dfs(str+someStr[i],count+1)
+            }
+        }
+        dfs("",0)
+        return arr;
+    };
 
 /**
  * 24-07-14 - O
