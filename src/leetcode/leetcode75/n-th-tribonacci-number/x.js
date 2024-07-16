@@ -1,9 +1,23 @@
 /**
  * https://leetcode.com/problems/n-th-tribonacci-number/submissions/1124281231/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-16 - O
  * 24-07-14 - O
  * 24-07-11 - O
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-16 - O
+ * @param {number} n
+ * @return {number}
+ */
+var tribonacci = function(n) {
+  let arr = [0,1,1];
+  for(let i =3;i<=n;i++){
+      arr[i]=arr[i-3]+arr[i-2]+arr[i-1]
+  }
+  return arr[n];
+};
 
 /**
  * 24-07-14 - O
