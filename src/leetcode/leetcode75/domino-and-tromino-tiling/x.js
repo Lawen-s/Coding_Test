@@ -1,6 +1,24 @@
 /**
  * https://leetcode.com/problems/domino-and-tromino-tiling/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-20 - X
+ * 23-12-28 - X
  */
+
+/**
+ * 24-07-20 - X
+ */
+var numTilings = function(n) {
+  const MOD = Math.pow(10,9)+7;
+  let dp ={};
+  dp[1]=1;
+  dp[2]=2;
+  dp[3]=5;
+  for(let i=4;i<=n;i++){
+      dp[i]=(2*dp[i-1]+dp[i-3])%MOD;
+  }
+  return dp[n];
+};
+
 
 /**
  * 점화식으로 풀어야하는 문제
