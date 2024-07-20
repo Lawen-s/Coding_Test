@@ -6,6 +6,22 @@
  */
 
 /**
+ * 24-07-20 - O
+ * @param {*} cost 
+ * @returns 
+ */
+var minCostClimbingStairs = function(cost) {
+    let one = cost[0];
+    let two = cost[1];
+    for(let i=2;i<cost.length;i++){
+        let point = cost[i]+Math.min(one,two);
+        one=two;
+        two=point;
+    }
+    return Math.min(one,two);
+};
+
+/**
  * 24-07-16 - X
  * @param {*} cost 
  * @returns 
