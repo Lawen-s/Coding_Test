@@ -1,6 +1,25 @@
 /**
  * https://leetcode.com/problems/house-robber/description/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-20 - X
+ * 23-12-27 - X
  */
+
+/**
+ * 24-07-20 - X
+ * @param {*} nums 
+ * @returns 
+ */
+var rob = function(nums ){
+let rob = 0;
+    let norob = 0;
+    for (let i = 0; i < nums.length; i++) {
+        let newRob = norob + nums[i];
+        let newNoRob = Math.max(norob, rob);
+        rob = newRob;
+        norob = newNoRob;
+    }
+    return Math.max(rob, norob);
+  }
 
 /**
  * 풀이를 보고 이해
