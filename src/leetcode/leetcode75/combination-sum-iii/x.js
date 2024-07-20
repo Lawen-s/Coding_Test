@@ -1,11 +1,33 @@
 /**
  * https://leetcode.com/problems/combination-sum-iii/submissions/1124253942/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-20 - O
  * 24-07-16 - O
  * 24-07-14 - O
  * 24-07-11 - X
  * 24-07-10 - X
  * 23-12-20 - X
  */
+
+/**
+ * 24-07-20 - O
+ * @param {*} k 
+ * @param {*} n 
+ * @returns 
+ */
+var combinationSum3 = function(k, n) {
+    let result = [];
+    function r (sum,count,arr,start){
+        if(sum===n&&count===k){
+            result.push(arr);
+            return;
+        }
+        for(let i =start;i<=9;i++){
+            r(sum+i,count+1,[...arr,i],i+1);
+        }
+    }
+    r(0,0,[],1);
+    return result;
+};
 
 
 /**
