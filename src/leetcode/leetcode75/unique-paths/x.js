@@ -1,6 +1,23 @@
 /**
  * https://leetcode.com/problems/unique-paths/submissions/1133677652/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-21 - X
+ * 24-01-01 - X
  */
+
+/**
+ * 24-07-21 - X 
+ */
+var uniquePaths = function(m, n) {
+  let count = 0;
+  let location = Array.from({length:m},()=>Array(n).fill(1));
+  for(let i =1;i<m;i++){
+      for(let j=1;j<n;j++){
+          location[i][j]=location[i][j-1]+location[i-1][j];
+      }
+  }
+  return location[m-1][n-1];
+  
+};
 
 /**
  * 풀이보고 이해
