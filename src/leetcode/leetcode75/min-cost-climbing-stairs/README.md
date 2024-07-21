@@ -4,9 +4,11 @@
 [leetcode.746](https://leetcode.com/problems/min-cost-climbing-stairs/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-21 - O
 * 24-07-20 - O
 * 24-07-16 - X
 * 24-07-14 - X
+* 24-07-11 - O
 * 23-12-20 - X
 
 # 문제 설명
