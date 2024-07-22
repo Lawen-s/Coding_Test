@@ -4,6 +4,7 @@
 [leetcode.1137](https://leetcode.com/problems/n-th-tribonacci-number/description/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-22 - O
 * 24-07-21 - O
 * 24-07-20 - O
 * 24-07-16 - O
