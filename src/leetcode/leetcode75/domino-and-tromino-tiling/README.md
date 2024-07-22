@@ -4,6 +4,7 @@
 [leetcode.790](https://leetcode.com/problems/domino-and-tromino-tiling/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-22 - O
 * 24-07-21 - X
 * 24-07-20 - X
 * 23-12-28 - X
