@@ -1,5 +1,6 @@
 /**
  * https://leetcode.com/problems/find-peak-element/submissions/1123435596/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-22 - O
  * 24-07-21 - O
  * 24-07-20 - X
  * 24-07-16 - X
@@ -7,6 +8,24 @@
  * 24-07-06 - O
  * 23-12-19 - X
  */
+
+/**
+ * 24-07-22 - O
+ */
+var findPeakElement = function(nums) {
+    let start =0;
+    let end = nums.length-1;
+    while(start<end){
+        let mid = Math.floor((start+end)/2);
+        if(nums[mid]<nums[mid+1]){
+            start=mid+1;
+        }
+        if(nums[mid]>nums[mid+1]){
+            end=mid;
+        }
+    }
+    return start;
+};
 
 /**
  * 24-07-21 - O
