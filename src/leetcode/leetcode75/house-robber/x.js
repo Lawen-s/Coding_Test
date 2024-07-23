@@ -1,10 +1,26 @@
 /**
  * https://leetcode.com/problems/house-robber/description/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-23 - O
  * 24-07-22 - O
  * 24-07-21 - X
  * 24-07-20 - X
  * 23-12-27 - X
  */
+
+/**
+ * 24-07-23 - O
+ */
+var rob = function(nums) {
+  let robO = 0;
+  let robX = 0;
+  for(let i=0;i<nums.length;i++){
+      let newRobO = nums[i]+robX;
+      let newRobX = Math.max(robX,robO);
+      robO = newRobO;
+      robX = newRobX
+  }
+  return Math.max(robO,robX);
+};
 
 /**
  * 24-07-22 - O
