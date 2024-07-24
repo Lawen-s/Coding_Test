@@ -8,6 +8,22 @@
  */
 
 /**
+ * 24-07-24 - O
+ */
+var rob = function(nums) {
+  let robO = 0;
+  let robX = 0;
+  for(let i=0;i<nums.length;i++){
+      let newRobO = nums[i]+robX;
+      let newRobX = Math.max(robO,robX);
+      robO=newRobO;
+      robX=newRobX;
+  }
+
+return Math.max(robO,robX);
+};
+
+/**
  * 24-07-23 - O
  */
 var rob = function(nums) {
