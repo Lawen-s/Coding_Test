@@ -1,8 +1,26 @@
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/submissions/1133761344/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-25 - X
+ * 24-01-01 - X
  */
 
 /**
+ * 24-07-25 - X
+ * 이해한 풀이 해석
+ * buying은 수익 = (안살때, 산걸 팔때) 
+ * selling은 손해 = (산걸 안팔때, 새로 살때)
+ */
+var maxProfit = function(prices, fee) {
+  let len = prices.length, buying = 0, selling = -prices[0]
+for (let i = 1; i < len; i++) {
+    buying = Math.max(buying, selling + prices[i] - fee)
+    selling = Math.max(selling, buying - prices[i])
+}
+return buying
+};
+
+/**
+ * 24-01-01 - X
  * 풀이를 옮김
  * @param {number[]} prices
  * @param {number} fee
