@@ -4,6 +4,7 @@
 [leetcode.1143](https://leetcode.com/problems/longest-common-subsequence/description/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+* 24-07-25 - X
 * 24-07-24 - X
 * 24-07-23 - X
 * 24-01-01 - X
