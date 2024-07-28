@@ -8,57 +8,69 @@
  */
 
 /**
- * 24-07-24 - O 
+ * 24-07-28 - X
  */
-var uniquePaths = function(m, n) {
-  let location = Array.from({length:m},()=>Array(n).fill(1));
-  for(let i =1;i<m;i++){
-      for(let j=1;j<n;j++){
-          location[i][j]=location[i-1][j]+location[i][j-1];
-      }
+var uniquePaths = function (m, n) {
+  let location = Array.from({ length: m }, () => Array(n).fill(1));
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      location[i][j] = location[i - 1][j] + location[i][j - 1];
+    }
   }
-  return location[m-1][n-1];
+  return location[m - 1][n - 1];
+};
+
+/**
+ * 24-07-24 - O
+ */
+var uniquePaths = function (m, n) {
+  let location = Array.from({ length: m }, () => Array(n).fill(1));
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      location[i][j] = location[i - 1][j] + location[i][j - 1];
+    }
+  }
+  return location[m - 1][n - 1];
 };
 
 /**
  * 24-07-23 - O
  */
-var uniquePaths = function(m, n) {
-  let location = Array.from({length:m},()=>Array(n).fill(1));
-  for(let i=1;i<m;i++){
-      for(let j=1;j<n;j++){
-          location[i][j]=location[i-1][j]+location[i][j-1];
-      }
+var uniquePaths = function (m, n) {
+  let location = Array.from({ length: m }, () => Array(n).fill(1));
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      location[i][j] = location[i - 1][j] + location[i][j - 1];
+    }
   }
-  return location[m-1][n-1];
+  return location[m - 1][n - 1];
 };
 
 /**
  * 24-07-22 - O
  */
-var uniquePaths = function(m, n) {
-  let location = Array.from({length:m},()=>Array(n).fill(1));
-  for(let i =1;i<m;i++){
-      for(let j=1;j<n;j++){
-          location[i][j]=location[i-1][j]+location[i][j-1];
-      }
+var uniquePaths = function (m, n) {
+  let location = Array.from({ length: m }, () => Array(n).fill(1));
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      location[i][j] = location[i - 1][j] + location[i][j - 1];
+    }
   }
-  return location[m-1][n-1];
+  return location[m - 1][n - 1];
 };
 
 /**
- * 24-07-21 - X 
+ * 24-07-21 - X
  */
-var uniquePaths = function(m, n) {
+var uniquePaths = function (m, n) {
   let count = 0;
-  let location = Array.from({length:m},()=>Array(n).fill(1));
-  for(let i =1;i<m;i++){
-      for(let j=1;j<n;j++){
-          location[i][j]=location[i][j-1]+location[i-1][j];
-      }
+  let location = Array.from({ length: m }, () => Array(n).fill(1));
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      location[i][j] = location[i][j - 1] + location[i - 1][j];
+    }
   }
-  return location[m-1][n-1];
-  
+  return location[m - 1][n - 1];
 };
 
 /**
@@ -67,13 +79,12 @@ var uniquePaths = function(m, n) {
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function(m, n) {
+var uniquePaths = function (m, n) {
   let ans = 1;
   for (let i = 1; i <= m - 1; i++) {
-      ans = ans * (n - 1 + i) / i;
+    ans = (ans * (n - 1 + i)) / i;
   }
   return ans;
-
 };
 
 /**
@@ -82,14 +93,14 @@ var uniquePaths = function(m, n) {
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function(m, n) {
-  const dp = new Array(n).fill(1)
+var uniquePaths = function (m, n) {
+  const dp = new Array(n).fill(1);
   for (let i = 1; i < m; i++) {
-      for (let j = 1; j < n; j++) dp[j] = dp[j] + dp[j - 1]
+    for (let j = 1; j < n; j++) dp[j] = dp[j] + dp[j - 1];
   }
 
-  return dp[n - 1]
+  return dp[n - 1];
 };
 
 // console.log(uniquePaths(3, 7 ))
-console.log(uniquePaths( 3, 2))
+console.log(uniquePaths(3, 2));
