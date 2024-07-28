@@ -1,15 +1,18 @@
 # 714.Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee
 
 # 링크
+
 [leetcode.714](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
-* 24-07-25 - X
-* 24-01-01 - X
+
+- 24-07-28 - X
+- 24-07-25 - X
+- 24-01-01 - X
 
 # 문제 설명
-#### 원문
 
+#### 원문
 
 You are given an array prices where prices[i] is the price of a given stock on the ith day, and an integer fee representing a transaction fee.
 
@@ -20,24 +23,21 @@ Note:
 You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
 The transaction fee is only charged once for each stock purchase and sale.
 
-
 # EXAMPLES
-#### Example 1.
 
+#### Example 1.
 
 Input: prices = [1,3,2,8,4,9], fee = 2
 Output: 8
 Explanation: The maximum profit can be achieved by:
+
 - Buying at prices[0] = 1
 - Selling at prices[3] = 8
 - Buying at prices[4] = 4
 - Selling at prices[5] = 9
-The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
-
+  The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 
 #### Example 2.
 
-
 Input: prices = [1,3,7,5,10,3], fee = 3
 Output: 6
-
