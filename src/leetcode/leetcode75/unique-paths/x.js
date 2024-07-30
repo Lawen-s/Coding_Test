@@ -1,11 +1,27 @@
 /**
  * https://leetcode.com/problems/unique-paths/submissions/1133677652/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-30 - O
+ * 24-07-28 - X
  * 24-07-24 - O
  * 24-07-23 - O
  * 24-07-22 - O
  * 24-07-21 - X
  * 24-01-01 - X
  */
+
+/**
+ * 24-07-30 - O
+ */
+var uniquePaths = function(m, n) {
+  const MOD = 2*10**9;
+  let location = Array.from({length:m},()=>Array(n).fill(1));
+  for(let i =1;i<m;i++){
+      for(let j=1;j<n;j++){
+          location[i][j]=location[i-1][j]+location[i][j-1];
+      }
+  }
+  return location[m-1][n-1] %MOD;
+};
 
 /**
  * 24-07-28 - X
