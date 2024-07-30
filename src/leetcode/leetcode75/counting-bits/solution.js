@@ -1,8 +1,25 @@
 /**
  * 문제 : https://leetcode.com/problems/counting-bits/submissions/1134666561/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-30 - O
  * 24-07-28 - X
  * 24-01-02 - O
  */
+/**
+ * 24-07-30 - O
+ */
+var countBits = function(n) {
+  let arr = [];
+  for(let i =0;i<=n;i++){
+      let count =0;
+      i.toString(2).split('').map((v) => {
+         if(v==='1'){
+          count++;
+         }
+      });
+      arr.push(count);
+  }
+  return arr;
+};
 
 /**
  * 24-07-28 - X
