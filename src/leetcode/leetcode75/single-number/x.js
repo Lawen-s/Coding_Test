@@ -1,6 +1,21 @@
 /**
  * 문제 : https://leetcode.com/problems/single-number/solutions/396584/clean-javascript-solution/?envType=study-plan-v2&envId=leetcode-75
+ * 24-07-31 - X
+ * 24-01-02 - X
  */
+
+/** 
+ * 24-07-31 - X
+ */
+var singleNumber = function(nums) {
+  let arr = nums.sort();
+  for(let i =0;i<nums.length;i+=2){
+      if(arr[i]!==arr[i+1]){
+          return arr[i];
+      }
+  }
+  return arr[-1]
+};
 
 /**
  * 정답을 보고 이해 
