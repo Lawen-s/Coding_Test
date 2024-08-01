@@ -1,11 +1,27 @@
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/submissions/1133761344/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-01 - O
  * 24-07-31 - O
  * 24-07-30 - O
  * 24-07-28 - X
  * 24-07-25 - X
  * 24-01-01 - X
  */
+
+/**
+ * 24-08-01 - O
+ */
+var maxProfit = function(prices, fee) {
+  let income = 0;
+  let minus = -prices[0];
+  for(let i=0;i<prices.length;i++){
+      let buy = income-prices[i];
+      let sell = minus+prices[i]-fee;
+      income = Math.max(income,sell);
+      minus = Math.max(minus,buy);
+  }
+  return income;
+};
 
 /**
  * 24-07-31 - O
