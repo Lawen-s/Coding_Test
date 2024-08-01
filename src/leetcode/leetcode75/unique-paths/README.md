@@ -5,6 +5,8 @@
 [leetcode.62](https://leetcode.com/problems/unique-paths/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+
+* 24-08-01 - O
 * 24-07-31 - O
 * 24-07-30 - O
 * 24-07-28 - X
