@@ -1,6 +1,39 @@
 /**
  * https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-01 - O
+ * 23-01-04 - X
  */
+
+/**
+ * 24-08-01 - O
+ */
+var minFlips = function(a, b, c) {
+    if(a===c&&b===c){
+        return 0
+    }
+    let bitA = a.toString(2).split('')
+    let bitB = b.toString(2).split('')
+    let bitC = c.toString(2).split('')
+    let maxLength = Math.max(bitA.length,bitB.length,bitC.length);
+    function filledZero(arr){
+        return new Array(maxLength-arr.length).fill('0').concat(arr);
+        }
+        bitA = filledZero(bitA);
+        bitB = filledZero(bitB);
+        bitC = filledZero(bitC);
+        let count =0;
+    for(let i=0;i<maxLength;i++){
+        let sumAB = parseInt(bitA[i])+parseInt(bitB[i]);
+        if(sumAB!==parseInt(bitC[i])){
+            if(sumAB-parseInt(bitC[i])===1&&parseInt(bitC[i])===1){
+                count--;
+            }
+            count+=sumAB>=parseInt(bitC[i])?sumAB-parseInt(bitC[i]):parseInt(bitC[i])-sumAB;
+        }
+        
+    }
+    return count;
+};
 
 /**
  * 풀이를 보고 이해함
