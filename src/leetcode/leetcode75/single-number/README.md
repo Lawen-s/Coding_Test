@@ -5,6 +5,8 @@
 [leetcode.136](https://leetcode.com/problems/single-number/?envType=study-plan-v2&envId=leetcode-75)
 
 # 날짜
+
+* 24-08-01 - O
 * 24-07-31 - X
 * 24-01-02 - X
 
