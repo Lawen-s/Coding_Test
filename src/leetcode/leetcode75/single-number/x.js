@@ -1,9 +1,23 @@
 /**
  * 문제 : https://leetcode.com/problems/single-number/solutions/396584/clean-javascript-solution/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-03 - O
  * 24-08-01 - O
  * 24-07-31 - X
  * 24-01-02 - X
  */
+
+/**
+ * 24-08-03 - O
+ */
+var singleNumber = function(nums) {
+  let sortNums = nums.sort();
+  for(let i=0;i<nums.length;i=i+2){
+      if(sortNums[i]!==sortNums[i+1]){
+          return sortNums[i];
+      }
+  }
+  return null
+};
 
 /**
  * 24-08-01 - O
