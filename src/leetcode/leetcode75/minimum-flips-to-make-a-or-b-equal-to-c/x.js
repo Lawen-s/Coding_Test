@@ -1,8 +1,44 @@
 /**
  * https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-03 - O
  * 24-08-01 - O
  * 23-01-04 - X
  */
+
+/**
+ * 24-08-03 - O
+ */
+var minFlips = function(a, b, c) {
+    if(a===c&&b===c) return 0;
+    let bitsStringA = a.toString(2).split('');
+    let bitsStringB = b.toString(2).split('');
+    let bitsStringC = c.toString(2).split('');
+    let maxLength = Math.max(bitsStringA.length,bitsStringB.length,bitsStringC.length);
+    function changeTypeAndShiftZero(bitsArr){
+        let newArr=[];
+        for(let i=0;i<maxLength;i++){
+            if(bitsArr[i]){
+                newArr.push(parseInt(bitsArr[i]))
+            }else{
+                newArr.unshift(0);
+            }
+        }        
+        return newArr;
+    }
+    bitsStringA = changeTypeAndShiftZero(bitsStringA);
+    bitsStringB = changeTypeAndShiftZero(bitsStringB);
+    bitsStringC = changeTypeAndShiftZero(bitsStringC);
+    let count =0;
+    for(let i=0;i<maxLength;i++){
+        if(bitsStringA[i]+bitsStringB[i]!==bitsStringC[i]){
+            count+=Math.abs((bitsStringA[i]+bitsStringB[i])-bitsStringC[i])
+        }
+        if(bitsStringA[i]+bitsStringB[i]===2&&bitsStringC[i]===1){
+            count--;
+        }
+    }
+    return count;
+};
 
 /**
  * 24-08-01 - O
