@@ -1,9 +1,35 @@
 /**
  * 문제:https://leetcode.com/problems/search-suggestions-system/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-04 - O
+ * 24-01-04 - X
  */
 
 /**
+ * 24-08-04 - O
+ */
+var suggestedProducts = function(products, searchWord) {
+    products.sort()
+    let splitSearchWord = searchWord.split('');
+    let result = [];
+    for(let i =1;i<=splitSearchWord.length;i++){
+        let searchArr =[];
+        let searchSpliceWord = searchWord.slice(0,i);
+        for(let j=0;j<products.length;j++){
+            if(searchSpliceWord===products[j].slice(0,i)){
+                searchArr.push(products[j]);
+            }
+            if(searchArr.length===3||j===products.length-1){
+                result.push(searchArr);
+                break;
+            }
+        }
+    }
+    return result;
+};
+
+/**
  * 풀이를 보고 이해
+ * 24-01-04 - X
  * @param {string[]} products
  * @param {string} searchWord
  * @return {string[][]}
