@@ -1,8 +1,51 @@
 /**
  * 문제: https://leetcode.com/problems/implement-trie-prefix-tree/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-05 - O
  * 24-08-04 - O
  * 24-01-04 - X
  */
+
+/**
+ * 24-08-05 - O
+ */
+var Trie = function() {
+  this.arr= [];
+};
+
+/** 
+* @param {string} word
+* @return {void}
+*/
+Trie.prototype.insert = function(word) {
+  this.arr = [...this.arr,word];
+};
+
+/** 
+* @param {string} word
+* @return {boolean}
+*/
+Trie.prototype.search = function(word) {
+  for(let i=0;i<this.arr.length;i++){
+      if(this.arr[i] === word){
+          return true;
+      }
+  }
+  return false;
+};
+
+/** 
+* @param {string} prefix
+* @return {boolean}
+*/
+Trie.prototype.startsWith = function(prefix) {
+  for(let i=0;i<this.arr.length;i++){
+      let thisArrStr = this.arr[i].slice(0,prefix.length);
+      if(thisArrStr === prefix){
+          return true;
+      }
+  }
+  return false;
+};
 
 /**
  * 24-08-04 - X
