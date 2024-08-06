@@ -1,9 +1,32 @@
 /**
  * 문제:https://leetcode.com/problems/search-suggestions-system/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-06 - O
  * 24-08-05 - O
  * 24-08-04 - O
  * 24-01-04 - X
  */
+
+/**
+ * 24-08-06 - O
+ */
+var suggestedProducts = function(products, searchWord) {
+    let result =[];
+    products.sort();
+    for(let i=1;i<=searchWord.length;i++){
+        let arr = [];
+        for(let j=0;j<products.length;j++){
+            if(products[j].slice(0,i)===searchWord.slice(0,i)){
+                arr.push(products[j]);
+            }
+            if(arr.length===3){
+                break;
+            }
+        }
+        result.push(arr);
+    }
+    return result;
+};
+
 
 /**
  * 24-08-05 - O
