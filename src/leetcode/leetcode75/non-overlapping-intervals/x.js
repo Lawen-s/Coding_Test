@@ -1,9 +1,28 @@
 /**
  * https://leetcode.com/problems/non-overlapping-intervals/submissions/1139177987/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-08 - O
  * 24-08-07 - O
  * 24-08-06 - X
  * 24-01-07 - X
  */
+
+/**
+ * 24-08-08 - O
+ */
+var eraseOverlapIntervals = function(intervals) {
+  intervals.sort((a,b)=>a[1]-b[1]);
+  let count = 0;
+  let before = intervals[0];
+  for(let i =1;i<intervals.length;i++){
+      if(before[1]>intervals[i][0]){
+          count++;
+      }else{
+          before = intervals[i];
+      }
+  }
+  return count;
+};
+
 
 /**
  * 24-08-07 - O
