@@ -1,9 +1,30 @@
 /**
  * https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/submissions/1140467645/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-10 - O
  * 24-08-08 - O
  * 24-08-07 - X
  * 24-01-08 - X
  */
+
+/**
+ * 24-08-10 - O
+ */
+var findMinArrowShots = function(points) {
+  points.sort((a,b)=>a[1]-b[1]);
+  let count =1;
+  let burst = points[0];
+  for(let i=1;i<points.length;i++){
+      if(burst[1]>points[i][1]){
+          count++
+      }
+      if(burst[1]<points[i][0]){
+          burst=points[i];
+          count++;
+      }
+  }
+  return count;
+};
+
 
 /**
  * 24-08-08 - O
