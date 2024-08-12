@@ -1,9 +1,27 @@
 /**
  * https://leetcode.com/problems/daily-temperatures/submissions/1140510319/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-12 - O
  * 24-08-11 - O
  * 24-08-08 - X
  * 24-01-08 - X
  */
+
+/**
+ * 24-08-12 - O
+ */
+var dailyTemperatures = function(temperatures) {
+  let stack = [];
+  let result = Array(temperatures.length).fill(0);
+  for(let i =0;i<temperatures.length;i++){
+      while(stack.length>0&&temperatures[i]>temperatures[stack[stack.length-1]]){
+          let index = stack.pop();
+          result[index]=i-index;
+      }
+      stack.push(i);
+  }
+  return result;
+};
+
 
 /**
  * 24-08-11 - O
