@@ -1,10 +1,36 @@
 /**
  * https://leetcode.com/problems/online-stock-span/?envType=study-plan-v2&envId=leetcode-75
  * 문제 설명 블로그 - https://msk2021.tistory.com/entry/LeetcodePython-901-Online-Stock-Span
+ * 24-08-13 - O
  * 24-08-12 - O
  * 24-08-11 - O
  * 24-01-09 - X
  */
+
+/**
+ * 24-08-13 - O
+ */
+var StockSpanner = function() {
+  this.stack = [];
+};
+/** 
+ * @param {number} price
+ * @return {number}
+ */
+StockSpanner.prototype.next = function(price) {
+    this.stack = [...this.stack,price];
+    let count =0;
+    let stackLength = this.stack.length-1;
+    while(stackLength>=0){
+        if(this.stack[stackLength]>price){
+            break;
+        }else{
+            count++;
+        stackLength--;
+        }
+    }
+    return count;
+};
 
 /**
  * 24-08-12 - O
