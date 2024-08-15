@@ -4,9 +4,9 @@
 
 [leetcode.1071](https://leetcode.com/problems/greatest-common-divisor-of-strings/?envType=study-plan-v2&envId=leetcode-75)
 
-# 날짜
+# 날짜 (JS, PY)
 
-* 24-08-15 - X
+* 24-08-15 - X , X
 * 23-11-12 - X
 
 # 문제 설명
