@@ -3,9 +3,9 @@
 # 링크
 [leetcode.1768](https://leetcode.com/problems/merge-strings-alternately/?envType=study-plan-v2&envId=leetcode-75)
 
-# 날짜
+# 날짜(JS, PY)
 
-* 24-08-15 - O
+* 24-08-15 - O , O
 * 24-08-13 - O
 * 23-11-12 - O
 
