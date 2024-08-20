@@ -1,9 +1,24 @@
 /**
  * https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-20 - O
  * 24-08-15 - O
  * 24-08-13 - O
  * 23-11-12 - O
  */
+
+/**
+ * 24-08-20 - O
+ */
+var mergeAlternately = function(word1, word2) {
+    let max = Math.max(word1.length, word2.length);
+    let result = '';
+    for(let i =0;i<max;i++){
+        let word1Str = word1[i]?word1[i]:'';
+        let word2Str = word2[i]?word2[i]:'';
+        result+=word1Str+word2Str;
+    }
+    return result;
+};
 
 /**
  * 24-08-15 - O
