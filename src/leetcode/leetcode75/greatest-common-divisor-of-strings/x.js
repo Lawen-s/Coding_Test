@@ -1,11 +1,30 @@
 /**
  * https://leetcode.com/problems/greatest-common-divisor-of-strings/description/?envType=study-plan-v2&envId=leetcode-75
  * 유클리드 호제법 (https://seunghyum.github.io/algorithm/Euclidean-algorithm/#)
+ * 24-08-28 - O
  * 24-08-27 - X
  * 24-08-20 - X
  * 24-08-15 - X
  * 23-11-12 - X
  */
+
+/**
+ * 24-08-28 - O
+ */
+var gcdOfStrings = function(str1, str2) {
+    if(str1+str2 !== str2+str1){
+        return '';
+    }
+    let str1Len = str1.length;
+    let str2Len = str2.length;
+    function gcd(num, rest){
+        if(!rest){
+            return num;
+        }
+        return gcd(rest,num%rest);
+    }
+    return str1.slice(0,gcd(str2Len,str1Len%str2Len))
+};
 
 /**
  * 24-08-27 - X
