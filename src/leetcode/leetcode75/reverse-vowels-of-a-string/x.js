@@ -1,7 +1,35 @@
 /**
  *  https://leetcode.com/problems/reverse-vowels-of-a-string/submissions/1097916630/?envType=study-plan-v2&envId=leetcode-75
- * 
+ * 24-08-28 - X
+ * 24-02-04 - X
  */
+
+/**
+ * 24-08-28 - X
+ */
+var reverseVowels = function(s) {
+  let vowels = ['a','e','i','o','u','A','E','I','O','U']
+  let start = 0;
+  let end = s.length-1;
+  let arr = s.split('');
+  while(start<end){
+      if(vowels.includes(arr[start])&&vowels.includes(arr[end])){
+          let temp = arr[start];
+          arr[start]=arr[end];
+          arr[end]=temp;
+          start++;
+          end--;
+      }
+      if(!vowels.includes(arr[start])){
+          start++;
+          }
+      if(!vowels.includes(arr[end])){
+          end--;
+      }
+  }
+  return arr.join('');
+};
+
 
 /**
  *  풀이보고 이해(24.02.04)
