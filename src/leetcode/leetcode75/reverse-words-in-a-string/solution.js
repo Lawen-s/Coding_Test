@@ -1,6 +1,25 @@
 /**
  * https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=leetcode-75
+ * 24-08-29 - O
+ * 24-02-04 - O
  */
+
+/**
+ * 24-08-29 - O
+ */
+var reverseWords = function(s) {
+  let wordsArr = s.split(' ').filter(word=>word!=='');
+  let start =0;
+  let end = wordsArr.length -1;
+  while(start<end){
+      let temp = wordsArr[start]
+      wordsArr[start]=wordsArr[end];
+      wordsArr[end]=temp;
+      start++;
+      end--;
+  }
+  return wordsArr.join(' ');
+};
 
 /**
  * 품(24.02.04)
