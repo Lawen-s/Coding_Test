@@ -1,6 +1,28 @@
 /**
  * https://leetcode.com/problems/product-of-array-except-self/?envType=study-plan-v2&envId=leetcode-75
+ * 24-09-05 - O
+ * 24-02-05 - X
+ * 23-11-14 - O
  */
+
+/**
+ * 24-09-05 - O
+ */
+var productExceptSelf = function(nums) {
+  let arr=[]
+  let max = nums.reduce((acc,cur)=>acc*=cur,1);
+  for(let i =0;i<nums.length;i++){
+      let sum;
+      if(nums[i]===0){
+          sum = nums.reduce((acc,cur,index)=>acc*=index!==i?cur:1,1);
+
+      }else{
+          sum = Math.floor(max/nums[i]);
+      }
+      arr.push(sum);
+  }
+  return arr;
+};
 
 
 /**
