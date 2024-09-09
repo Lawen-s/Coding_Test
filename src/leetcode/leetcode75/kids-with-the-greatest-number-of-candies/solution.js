@@ -1,9 +1,19 @@
 /**
  *  https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/?envType=study-plan-v2&envId=leetcode-75
+ * 24-09-09 - O
  * 24-09-07 - O
  * 24-08-27 - O
  * 23-11-13 - O
  */
+
+/**
+ * 24-09-09 - O
+ */
+var kidsWithCandies = function(candies, extraCandies) {
+  let max = Math.max(...candies);
+  let arr = candies.map((v)=>v+extraCandies>=max);
+  return arr;
+};
 
 /**
  * 24-09-07 - O
