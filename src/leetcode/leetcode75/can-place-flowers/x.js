@@ -1,8 +1,31 @@
 /**
  * 문제: https://leetcode.com/problems/can-place-flowers/?envType=study-plan-v2&envId=leetcode-75
+ * 24-09-09 - O
  * 24-08-27 - X
  * 24-01-31 - X
  */
+
+/**
+ * 24-09-09 - O
+ */
+var canPlaceFlowers = function(flowerbed, n) {
+  if(n===0){
+          return true;
+      }
+
+  for(let i =0;i<flowerbed.length;i++){
+      let pre = i-1<0?0:flowerbed[i-1];
+      let next = i+1>=flowerbed.length?0:flowerbed[i+1];
+      if(pre+flowerbed[i]+next===0){
+          flowerbed[i]=1;
+          n--;
+      }
+      if(n===0){
+          return true;
+      }
+  }
+  return n===0?true:false;
+};
 
 /**
  * 24-08-27 - X 
