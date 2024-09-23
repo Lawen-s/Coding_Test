@@ -1,8 +1,29 @@
 /**
  * https://leetcode.com/problems/increasing-triplet-subsequence/?envType=study-plan-v2&envId=leetcode-75
+ * 24-09-23 - X
  * 24-09-10 - X
  * 24-02-14 - X
  */
+
+/**
+ * 24-09-23 - X
+ */
+var increasingTriplet = function (nums) {
+  let firstNumber = Infinity;
+  let secondNumber = Infinity;
+  for (let currentNumber of nums) {
+    if (currentNumber > secondNumber && currentNumber > firstNumber) {
+      return true;
+    }
+    if (currentNumber > firstNumber) {
+      console.log({ firstNumber });
+      secondNumber = currentNumber;
+    } else {
+      firstNumber = currentNumber;
+    }
+  }
+  return false;
+};
 
 /**
  * 24-09-10 - X
