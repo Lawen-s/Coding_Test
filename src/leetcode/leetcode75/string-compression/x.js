@@ -1,8 +1,32 @@
 /**
  * https://leetcode.com/problems/string-compression/submissions/1098706705/?envType=study-plan-v2&envId=leetcode-75
+ * 2024-09-24 - X
  * 2024-09-23 - X
  * 2024-02-15 - X
  */
+
+/**
+ * 2024-09-24 - X
+ */
+var compress = function (chars) {
+  let i = 0;
+  let j = 0;
+  while (j < chars.length) {
+    let count = 0;
+    let curr = chars[j];
+    while (j < chars.length && chars[j] === curr) {
+      j++;
+      count++;
+    }
+    chars[i++] = curr;
+    if (count > 1) {
+      for (let digit of count.toString()) {
+        chars[i++] = digit;
+      }
+    }
+  }
+  return i;
+};
 
 /**
  * 2024-09-23 - X
@@ -52,6 +76,7 @@ var compress = function (chars) {
   });
   return newResult.split("");
 };
+
 /**
  * 2024-02-15
  * 풀이를 참고
