@@ -1,9 +1,26 @@
 /**
  * https://leetcode.com/problems/move-zeroes/submissions/1099354251/?envType=study-plan-v2&envId=leetcode-75
+ *  2024-09-25 - O
  *  2024-09-24 - O
  *  2024-02-15 - O
  *  2023-11-15 - O
  */
+
+/**
+ *  2024-09-25 - O
+ */
+var moveZeroes = function (nums) {
+  let s = 0;
+  let n = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      [nums[n], nums[s]] = [nums[s], nums[n]];
+      s++;
+    }
+    n++;
+  }
+  return nums;
+};
 
 /**
  *  2024-09-24 - O
