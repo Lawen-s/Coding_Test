@@ -1,8 +1,29 @@
 /**
- * https://leetcode.com/problems/max-number-of-k-sum-pairs/submissions/1101968121/?envType=study-plan-v2&envId=leetcode-75 
- * 23-11-19 - X
+ * https://leetcode.com/problems/max-number-of-k-sum-pairs/submissions/1101968121/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-04 - X
  * 24-02-20 - X
+ * 23-11-19 - X
  */
+
+/**
+ * 24-10-04 - X
+ */
+var maxOperations = function (nums, k) {
+  nums.sort((a, b) => a - b);
+  let s = 0;
+  let count = 0;
+  let e = nums.length - 1;
+  while (s < e) {
+    if (nums[s] + nums[e] === k) {
+      count++;
+      s++;
+      e--;
+    } else {
+      nums[s] + nums[e] > k ? e-- : s++;
+    }
+  }
+  return count;
+};
 
 /**
  * 24-02-20 - X -  풀이 보고 이해
@@ -10,18 +31,19 @@
  * @param {number} k
  * @return {number}
  */
-var maxOperations = function(nums, k) {
-  let result =0, i=0,j=nums.length-1;
-  nums.sort((x,y)=> x-y)
-  while(i<j){
+var maxOperations = function (nums, k) {
+  let result = 0,
+    i = 0,
+    j = nums.length - 1;
+  nums.sort((x, y) => x - y);
+  while (i < j) {
     let add = nums[i] + nums[j];
-    if(add<k) i++;
-    else if(add>k) j--;
-    else result++,i++,j--;
+    if (add < k) i++;
+    else if (add > k) j--;
+    else result++, i++, j--;
   }
   return result;
 };
-
 
 /**
  * 내가 푼 코드(특정 부분에서 통과 x)
@@ -29,18 +51,17 @@ var maxOperations = function(nums, k) {
  * @param {number} k
  * @return {number}
  */
-var maxOperations = function(nums, k) {
-for(let left=0; left<nums.length; left++) {
-  for(let right=nums.length;right>left;right--) {
-    if(nums[left]+nums[right]===k){
-      nums.splice(right, 1);
-      nums.splice(left, 1);
-      result+=1;
-    }
+var maxOperations = function (nums, k) {
+  for (let left = 0; left < nums.length; left++) {
+    for (let right = nums.length; right > left; right--) {
+      if (nums[left] + nums[right] === k) {
+        nums.splice(right, 1);
+        nums.splice(left, 1);
+        result += 1;
+      }
     }
   }
-}
-
+};
 
 /**
  * 참고한 코드
@@ -48,29 +69,25 @@ for(let left=0; left<nums.length; left++) {
  * @param {number} k
  * @return {number}
  */
-var maxOperations = function(nums, k) {
-
+var maxOperations = function (nums, k) {
   let result = 0,
-      left = 0,
-      right = nums.length-1;
-  nums.sort((a,b)=>a-b)
+    left = 0,
+    right = nums.length - 1;
+  nums.sort((a, b) => a - b);
 
-  while(left < right) {
-    if(nums[left]+nums[right]>k){
+  while (left < right) {
+    if (nums[left] + nums[right] > k) {
       right--;
-    }
-    else if(nums[left]+nums[right]<k){
+    } else if (nums[left] + nums[right] < k) {
       left++;
-    }
-    else{
+    } else {
       result++;
       left++;
       right--;
     }
   }
-  return result
+  return result;
 };
-
 
 // console.log(maxOperations([1,2,3,4], 5))
 // console.log(maxOperations([3,1,3,4,3], 6))
