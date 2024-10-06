@@ -1,9 +1,33 @@
 /**
  * https://leetcode.com/problems/max-number-of-k-sum-pairs/submissions/1101968121/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-06 - O
  * 24-10-04 - X
  * 24-02-20 - X
  * 23-11-19 - X
  */
+
+/**
+ * 24-10-06 - O
+ */
+var maxOperations = function (nums, k) {
+  let start = 0;
+  let end = nums.length - 1;
+  let count = 0;
+  nums.sort((a, b) => a - b);
+  while (start < end) {
+    let sum = nums[start] + nums[end];
+    if (sum > k) {
+      end--;
+    } else {
+      start++;
+      if (sum === k) {
+        count++;
+        end--;
+      }
+    }
+  }
+  return count;
+};
 
 /**
  * 24-10-04 - X
