@@ -1,10 +1,33 @@
 /**
  * https://leetcode.com/problems/is-subsequence/submissions/1099374291/?envType=study-plan-v2&envId=leetcode-75
- *  2024-10-04 - O
- *  2024-09-25 - X
- *  2024-02-19 - O
- *  2023-11-15 - O
+ *  24-10-07 - O
+ *  24-10-04 - O
+ *  24-09-25 - X
+ *  24-02-19 - O
+ *  23-11-15 - O
  */
+
+/**
+ * 24-10-07 - O
+ */
+var isSubsequence = function (s, t) {
+  let count = 0;
+  let start = 0;
+  for (let i = 0; i < s.length; i++) {
+    let check = start === 0 ? -1 : start;
+    for (let j = start; j < t.length; j++) {
+      if (s[i] === t[j]) {
+        count++;
+        start = j + 1;
+        break;
+      }
+    }
+    if (start === check) {
+      return false;
+    }
+  }
+  return s.length === count;
+};
 
 /**
  *  2024-10-04 - O
