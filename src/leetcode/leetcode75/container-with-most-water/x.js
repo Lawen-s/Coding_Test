@@ -1,10 +1,34 @@
 /**
  * https://leetcode.com/problems/container-with-most-water/submissions/1099456924/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-06 - O
  * 24-10-04 - O
  * 24-10-03 - X
  * 24-02-20 - X
  * 23-11-26 - X
  */
+
+/**
+ * 24-10-06 - O
+ */
+var maxArea = function (height) {
+  let result = 0;
+  let start = 0;
+  let end = height.length - 1;
+  while (start < end) {
+    for (let i = start; i <= end; i++) {
+      result = Math.max(
+        result,
+        Math.min(height[start], height[end]) * (end - start)
+      );
+      if (height[start] < height[end]) {
+        start++;
+      } else {
+        end--;
+      }
+    }
+  }
+  return result;
+};
 
 /**
  * 24-10-04 - O
