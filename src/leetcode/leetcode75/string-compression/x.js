@@ -1,9 +1,33 @@
 /**
  * https://leetcode.com/problems/string-compression/submissions/1098706705/?envType=study-plan-v2&envId=leetcode-75
- * 2024-09-24 - X
- * 2024-09-23 - X
- * 2024-02-15 - X
+ * 24-10-09 - X
+ * 24-09-24 - X
+ * 24-09-23 - X
+ * 24-02-15 - X
  */
+
+/**
+ * 24-10-09 - X
+ */
+var compress = function (chars) {
+  let start = 0;
+  let l = 0;
+  while (start < chars.length) {
+    let count = 0;
+    let str = chars[start];
+    while (start < chars.length && str === chars[start]) {
+      start++;
+      count++;
+    }
+    chars[l++] = str;
+    if (count > 1) {
+      for (let digit of count.toString()) {
+        chars[l++] = digit;
+      }
+    }
+  }
+  return l;
+};
 
 /**
  * 2024-09-24 - X
