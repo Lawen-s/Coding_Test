@@ -1,8 +1,27 @@
 /**
  * https://leetcode.com/problems/max-consecutive-ones-iii/submissions/1102751929/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-09 - X
  * 24-02-27 - X
  * 23-11-20 - O
  */
+
+/**
+ * 24-10-09 - X
+ */
+var longestOnes = function (A, K) {
+  let left = 0,
+    right = 0;
+
+  while (right < A.length) {
+    if (A[right] === 0) K--;
+    if (K < 0) {
+      if (A[left] === 0) K++;
+      left++;
+    }
+    right++;
+  }
+  return right - left;
+};
 
 /**
  * 24-02-27
@@ -11,44 +30,45 @@
  * @param {number} k
  * @return {number}
  */
-var longestOnes = function(nums, k) {
-    let max = 0;
-    let count = 0;
-    let reduceNum = k;
-    for(let i = 0; i < nums.length; i++) {
-        if(nums[i]===0){
-          count++
-          reduceNum--;
-        }else{
-          count++;
-        }
-        if(reduceNum===0&&nums[i+1]===0||i===nums.length-1){
-          console.log(i)
-          max = Math.max(max,count)
-          reduceNum = k;
-          count =0;
-        }
+var longestOnes = function (nums, k) {
+  let max = 0;
+  let count = 0;
+  let reduceNum = k;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      count++;
+      reduceNum--;
+    } else {
+      count++;
     }
-    return max
+    if ((reduceNum === 0 && nums[i + 1] === 0) || i === nums.length - 1) {
+      console.log(i);
+      max = Math.max(max, count);
+      reduceNum = k;
+      count = 0;
+    }
+  }
+  return max;
 };
 /**
  * 풀이 참고, Sliding window
- * @param {*} A 
- * @param {*} K 
- * @returns 
+ * @param {*} A
+ * @param {*} K
+ * @returns
  */
-var longestOnes = function(A, K) {
-  let left = 0, right = 0;
-  
-  while(right < A.length) {
-      if(A[right] === 0) K--;
-      if(K < 0) {
-          if(A[left] === 0) K++;
-          left++;
-      }
-      right++;
+var longestOnes = function (A, K) {
+  let left = 0,
+    right = 0;
+
+  while (right < A.length) {
+    if (A[right] === 0) K--;
+    if (K < 0) {
+      if (A[left] === 0) K++;
+      left++;
+    }
+    right++;
   }
-  return right-left;
+  return right - left;
 };
 
 /**
