@@ -1,32 +1,56 @@
 /**
  * https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/submissions/1103493649/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-10 - X
  * 24-02-28 - X
- * 23-11-21 - O
+ * 23-11-21 - X
  */
 
 /**
+ * 24-10-10 - X
+ */
+var longestSubarray = function (nums) {
+  let max = 0;
+  let left = 0;
+  let right = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      max = Math.max(max, left + right);
+      left = right;
+      right = 0;
+    } else {
+      right++;
+    }
+  }
+  max = Math.max(max, left + right);
+  return max === nums.length ? max - 1 : max;
+};
+
+/**
  * 내가 푼 코드
- * 24-02-28 - X 
+ * 24-02-28 - X
  * @param {number[]} nums
  * @return {number}
  */
-var longestSubarray = function(nums) {
-  let left = 0, right=nums.length, count = 0,remove=1;
-  while(left<right){
-    if(nums[left]===1){
-      count++
+var longestSubarray = function (nums) {
+  let left = 0,
+    right = nums.length,
+    count = 0,
+    remove = 1;
+  while (left < right) {
+    if (nums[left] === 1) {
+      count++;
       left++;
-    }else{
+    } else {
       left++;
-      if(remove===0){
-        remove =1;
+      if (remove === 0) {
+        remove = 1;
         count--;
-      }else{
+      } else {
         remove--;
       }
     }
   }
-  return count===right?count-1:count;
+  return count === right ? count - 1 : count;
 };
 
 /**
@@ -34,22 +58,20 @@ var longestSubarray = function(nums) {
  * @param {number[]} nums
  * @return {number}
  */
-var longestSubarray = function(nums) {
+var longestSubarray = function (nums) {
   let zeroCount = 0;
   let longestWindow = 0;
   let start = 0;
   for (let i = 0; i < nums.length; i++) {
-      zeroCount += (nums[i] === 0 ? 1 : 0);
-      while (zeroCount > 1) {
-          zeroCount -= (nums[start] === 0 ? 1 : 0);
-          start++;
-      }
-      longestWindow = Math.max(longestWindow, i - start);
+    zeroCount += nums[i] === 0 ? 1 : 0;
+    while (zeroCount > 1) {
+      zeroCount -= nums[start] === 0 ? 1 : 0;
+      start++;
+    }
+    longestWindow = Math.max(longestWindow, i - start);
   }
   return longestWindow;
 };
-
-
 
 /**
  * 유튜브 참고 https://www.youtube.com/watch?v=jhBrybXSFTs
