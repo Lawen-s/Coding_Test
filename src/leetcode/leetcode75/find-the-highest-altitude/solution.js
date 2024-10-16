@@ -1,9 +1,22 @@
 /**
  * https://leetcode.com/problems/find-the-highest-altitude/submissions/1192733876/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-17 - O
  * 24-10-15 - O
  * 24-10-14 - O
  * 24-03-03 - O
  */
+
+/**
+ * 24-10-17 - O
+ */
+var largestAltitude = function (gain) {
+  let arr = [0];
+  gain.reduce((a, c) => {
+    arr.push(a + c);
+    return a + c;
+  }, 0);
+  return Math.max(...arr);
+};
 
 /**
  * 24-10-15 - O
