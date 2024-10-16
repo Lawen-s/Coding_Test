@@ -1,9 +1,27 @@
 /**
  * https://leetcode.com/problems/find-pivot-index/submissions/1103506906/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-17 - O
  * 24-10-16 - X
  * 24-03-04 - X
  * 23-11-21 - X
  */
+
+/**
+ * 24-10-17 - O
+ */
+var pivotIndex = function (nums) {
+  let leftTotal = 0;
+  let rightTotal = nums.reduce((a, c) => a + c, 0);
+  for (let i = 0; i < nums.length; i++) {
+    rightTotal -= nums[i];
+    if (leftTotal === rightTotal) {
+      return i;
+    } else {
+      leftTotal += nums[i];
+    }
+  }
+  return -1;
+};
 
 /**
  * 24-10-16 - X
