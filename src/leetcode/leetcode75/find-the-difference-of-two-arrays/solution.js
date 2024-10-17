@@ -1,8 +1,29 @@
 /**
  * https://leetcode.com/problems/find-the-difference-of-two-arrays/submissions/1103529299/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-17 - X
  * 24-03-10 - O
- * 23-11-22 - O 
-*/
+ * 23-11-22 - O
+ */
+
+/**
+ * 24-10-17 - X
+ */
+var findDifference = function (nums1, nums2) {
+  let nums1Set = [...new Set(nums1)];
+  let nums2Set = [...new Set(nums2)];
+  let max = Math.max(nums1Set.length, nums2Set.length);
+  let nums1Arr = [];
+  let nums2Arr = [];
+  for (let i = 0; i < max; i++) {
+    if (!nums1Set.includes(nums2Set[i]) && nums2Set[i] !== undefined) {
+      nums2Arr.push(nums2Set[i]);
+    }
+    if (!nums2Set.includes(nums1Set[i]) && nums1Set[i] !== undefined) {
+      nums1Arr.push(nums1Set[i]);
+    }
+  }
+  return [nums1Arr, nums2Arr];
+};
 
 /**
  * 24-03-10 - O - 내가 푼 코드(효율 X)
@@ -10,21 +31,20 @@
  * @param {number[]} nums2
  * @return {number[][]}
  */
-var findDifference = function(nums1, nums2) {
+var findDifference = function (nums1, nums2) {
   let arr1 = [];
   let arr2 = [];
-  let length = nums1.length>nums2.length?nums1.length:nums2.length;
-  for(let i = 0; i < length; i++) {
-    if(!nums2.includes(nums1[i])&&nums1[i]!==undefined){
-      if(!arr1.includes(nums1[i])) arr1.push(nums1[i])
+  let length = nums1.length > nums2.length ? nums1.length : nums2.length;
+  for (let i = 0; i < length; i++) {
+    if (!nums2.includes(nums1[i]) && nums1[i] !== undefined) {
+      if (!arr1.includes(nums1[i])) arr1.push(nums1[i]);
     }
-    if(!nums1.includes(nums2[i])&&nums2[i]!==undefined){
-      if(!arr2.includes(nums2[i])) arr2.push(nums2[i])
+    if (!nums1.includes(nums2[i]) && nums2[i] !== undefined) {
+      if (!arr2.includes(nums2[i])) arr2.push(nums2[i]);
     }
   }
-  return [arr1,arr2]
+  return [arr1, arr2];
 };
-
 
 /**
  * 23-11-22
