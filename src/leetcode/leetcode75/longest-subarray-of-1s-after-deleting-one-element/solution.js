@@ -1,10 +1,31 @@
 /**
  * https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/submissions/1103493649/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-20 - O
  * 24-10-15 - O
  * 24-10-10 - X
  * 24-02-28 - X
  * 23-11-21 - X
  */
+
+/**
+ * 24-10-20 - O
+ */
+var longestSubarray = function (nums) {
+  let max = 0;
+  let count = 0;
+  let prev = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      max = Math.max(max, prev + count);
+      prev = count;
+      count = 0;
+    } else {
+      count++;
+    }
+  }
+  max = Math.max(max, prev + count);
+  return max === nums.length ? max - 1 : max;
+};
 
 /**
  * 24-10-15 - O
