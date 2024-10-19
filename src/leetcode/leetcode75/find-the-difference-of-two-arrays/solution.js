@@ -1,9 +1,34 @@
 /**
  * https://leetcode.com/problems/find-the-difference-of-two-arrays/submissions/1103529299/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-20 - O
  * 24-10-17 - X
  * 24-03-10 - O
  * 23-11-22 - O
  */
+
+/**
+ * 24-10-20 - O
+ */
+var findDifference = function (nums1, nums2) {
+  let nums1Arr = [...new Set(nums1)];
+  let nums2Arr = [...new Set(nums2)];
+  let newNums1 = [];
+  let newNums2 = [];
+  let max = Math.max(nums1Arr.length, nums2Arr.length);
+  for (let i = 0; i < max; i++) {
+    if (nums1Arr[i] !== undefined) {
+      if (!nums2Arr.includes(nums1Arr[i])) {
+        newNums1.push(nums1Arr[i]);
+      }
+    }
+    if (nums2Arr[i] !== undefined) {
+      if (!nums1Arr.includes(nums2Arr[i])) {
+        newNums2.push(nums2Arr[i]);
+      }
+    }
+  }
+  return [newNums1, newNums2];
+};
 
 /**
  * 24-10-17 - X
