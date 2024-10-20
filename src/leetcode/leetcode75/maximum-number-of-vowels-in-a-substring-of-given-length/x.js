@@ -1,9 +1,36 @@
 /**
  * https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/submissions/1102723214/?envType=study-plan-v2&envId=leetcode-75
+ * 24.10.20 - X
  * 24.10.07 - X
  * 24.02.25 - X
  * 23.11.20 - X
  */
+
+/**
+ * 24.10.20 - X
+ */
+var maxVowels = function (s, k) {
+  let vowles = ["a", "e", "i", "o", "u"];
+  let max = 0,
+    count = 0;
+  for (let i = 0; i < k; i++) {
+    if (vowles.includes(s[i])) {
+      count++;
+    }
+  }
+  console.log({ count });
+  max = count;
+  for (let i = k; i < s.length; i++) {
+    if (vowles.includes(s[i])) {
+      count++;
+    }
+    if (vowles.includes(s[i - k])) {
+      count--;
+    }
+    max = Math.max(max, count);
+  }
+  return max;
+};
 
 /**
  * 24.10.07 - X
