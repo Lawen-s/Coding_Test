@@ -1,9 +1,32 @@
 /**
  * https://leetcode.com/problems/max-consecutive-ones-iii/submissions/1102751929/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-20 - X
  * 24-10-09 - X
  * 24-02-27 - X
  * 23-11-20 - O
  */
+
+/**
+ * 24-10-20 - X
+ */
+var longestOnes = function (nums, k) {
+  let left = 0,
+    right = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[right] === 0) {
+      k--;
+    }
+    if (k < 0) {
+      if (nums[left] === 0) {
+        k++;
+      }
+      // console.log(i, k);
+      left++;
+    }
+    right++;
+  }
+  return right - left;
+};
 
 /**
  * 24-10-09 - X
