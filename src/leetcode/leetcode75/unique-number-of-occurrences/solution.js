@@ -1,9 +1,27 @@
 /**
  * https://leetcode.com/problems/unique-number-of-occurrences/submissions/1104840456/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-21 - O
  * 24-10-19 - O
  * 24-03-10 - O
  * 23-11-23 - O
  */
+
+/**
+ * 24-10-21 - O
+ */
+var uniqueOccurrences = function (arr) {
+  let mapArr = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    mapArr.set(arr[i], (mapArr.get(arr[i]) || 0) + 1);
+  }
+  let newArr = [...mapArr.values()].sort((a, b) => a - b);
+  for (let i = 1; i < newArr.length; i++) {
+    if (newArr[i - 1] === newArr[i]) {
+      return false;
+    }
+  }
+  return true;
+};
 
 /**
  * 24-10-19 - O
