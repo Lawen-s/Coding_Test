@@ -1,36 +1,60 @@
 /**
  * https://leetcode.com/problems/equal-row-and-column-pairs/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-22 - X
  * 24-03-17 - X
  * 23-11-28 - X
  */
+
+/**
+ * 24-10-22 - X
+ */
+var equalPairs = function (grid) {
+  let arr = [];
+  let anotherArr = [];
+  grid.map((v) => arr.push(v.join()));
+  for (let i = 0; i < grid.length; i++) {
+    let newArr = [];
+    for (let j = 0; j < grid.length; j++) {
+      newArr.push(grid[j][i]);
+    }
+    anotherArr.push(newArr.join());
+  }
+  let arrCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < anotherArr.length; j++) {
+      if (arr[i] === anotherArr[j]) {
+        arrCount++;
+      }
+    }
+  }
+  return arrCount;
+};
 
 /**
  * 24-03-17 - X - 풀이를 보고 이해
  * @param {number[][]} grid
  * @return {number}
  */
-var equalPairs = function(grid) {
+var equalPairs = function (grid) {
+  const n = grid.length;
+  let count = 0;
+  const rows = new Map();
 
-  const n = grid.length
-  let count = 0
-  const rows = new Map()
-
-  for(let r = 0; r < n; r++){
-      const row = JSON.stringify(grid[r])
-      rows.set(row, 1 + (rows.get(row) || 0))
+  for (let r = 0; r < n; r++) {
+    const row = JSON.stringify(grid[r]);
+    rows.set(row, 1 + (rows.get(row) || 0));
   }
 
-  for(let c = 0; c < n; c++){
-    const col = JSON.stringify(grid.map(row => row[c]))
-      count += (rows.get(col) || 0)
+  for (let c = 0; c < n; c++) {
+    const col = JSON.stringify(grid.map((row) => row[c]));
+    count += rows.get(col) || 0;
   }
-  
-  return count
+
+  return count;
 };
 
 // console.log(equalPairs([[3,2,1],[1,7,6],[2,7,7]]))
 // console.log(equalPairs([[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]))
-
 
 /**
  * 참고한 방식(https://www.geeksforgeeks.org/count-all-pairs-of-rows-and-columns-which-are-equal/)
