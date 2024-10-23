@@ -1,9 +1,30 @@
 /**
  * https://leetcode.com/problems/determine-if-two-strings-are-close/submissions/1104882939/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-23 - X
  * 24-10-21 - X
  * 24-03-14 - X
  * 23-11-23 - X
  */
+
+/**
+ * 24-10-23 - X
+ */
+var closeStrings = function (word1, word2) {
+  if (word1.length !== word2.length) {
+    return false;
+  }
+  let map1 = new Map();
+  let map2 = new Map();
+  for (let i = 0; i < word1.length; i++) {
+    map1.set(word1[i], (map1.get(word1[i]) || 0) + 1);
+    map2.set(word2[i], (map2.get(word2[i]) || 0) + 1);
+  }
+  let map1Keys = [...map1.keys()].sort().join();
+  let map1Values = [...map1.values()].sort().join();
+  let map2Keys = [...map2.keys()].sort().join();
+  let map2Values = [...map2.values()].sort().join();
+  return map1Keys === map2Keys && map1Values === map2Values;
+};
 
 /**
  * 24-10-21 - X
