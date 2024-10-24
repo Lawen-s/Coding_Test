@@ -1,9 +1,25 @@
 /**
  * https://leetcode.com/problems/removing-stars-from-a-string/submissions/1108130867/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-24 - O
  * 24-10-23 - O
  * 24-03-17 - O
  * 23-11-28 - O
  */
+
+/**
+ * 24-10-24 - O
+ */
+var removeStars = function (s) {
+  let result = [];
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "*") {
+      result.pop();
+    } else {
+      result.push(s[i]);
+    }
+  }
+  return result.join("");
+};
 
 /**
  * 24-10-23 - O
