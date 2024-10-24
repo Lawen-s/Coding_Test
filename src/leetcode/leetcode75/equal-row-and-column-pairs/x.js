@@ -1,10 +1,36 @@
 /**
  * https://leetcode.com/problems/equal-row-and-column-pairs/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-24 - X
  * 24-10-23 - X
  * 24-10-22 - X
  * 24-03-17 - X
  * 23-11-28 - X
  */
+
+/**
+ * 24-10-24 - X
+ */
+var equalPairs = function (grid) {
+  let columns = [];
+  for (let i = 0; i < grid.length; i++) {
+    let arr = [];
+    for (let j = 0; j < grid[0].length; j++) {
+      arr.push(grid[j][i]);
+    }
+    columns.push(arr.join());
+  }
+  let newGrid = grid.map((v) => v.join());
+  let count = 0;
+  for (let i = 0; i < newGrid.length; i++) {
+    for (let j = 0; j < columns.length; j++) {
+      if (newGrid[i] === columns[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+};
 
 /**
  * 24-10-23 - X
