@@ -1,35 +1,60 @@
 /**
  * https://leetcode.com/problems/asteroid-collision/submissions/1108156540/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-24 - X
+ * 24-03-18 - X
+ * 23-11-28 - X
  */
+
+/**
+ * 24-10-24 - X
+ */
+var asteroidCollision = function (asteroids) {
+  const res = [];
+
+  for (let i = 0; i < asteroids.length; i++) {
+    const last = res[res.length - 1];
+    const cur = asteroids[i];
+
+    if (!res.length || last < 0 || cur > 0) {
+      res.push(cur);
+    } else if (-cur == last) {
+      res.pop();
+    } else if (-cur > last) {
+      res.pop();
+      i--;
+    }
+  }
+
+  return res;
+};
 
 /**
  * 24-03-18 - X - 풀이보고 이해
  * @param {number[]} asteroids
  * @return {number[]}
  */
-var asteroidCollision = function(asteroids) {
-  const stack = []
-  
-  for (let i = 0; i < asteroids.length; i++) {
-      const last = stack[stack.length - 1]
-      const curr = asteroids[i]
-      
-      if (!stack.length || last < 0 || curr > 0) {
-          // stack is empty and last and curr not colliding
-          stack.push(curr)
-      } else if (last + curr === 0) {
-          // last and curr collide and cancel each other out
-          stack.pop()
-      } else if (Math.abs(last) < Math.abs(curr)) {
-          // last and curr collide and last is smaller
-          stack.pop()
-          i--
-      }
-  }
-  
-  return stack
-};
+var asteroidCollision = function (asteroids) {
+  const stack = [];
 
+  for (let i = 0; i < asteroids.length; i++) {
+    const last = stack[stack.length - 1];
+    const curr = asteroids[i];
+
+    if (!stack.length || last < 0 || curr > 0) {
+      // stack is empty and last and curr not colliding
+      stack.push(curr);
+    } else if (last + curr === 0) {
+      // last and curr collide and cancel each other out
+      stack.pop();
+    } else if (Math.abs(last) < Math.abs(curr)) {
+      // last and curr collide and last is smaller
+      stack.pop();
+      i--;
+    }
+  }
+
+  return stack;
+};
 
 /**
  * 23-11-28 - X
