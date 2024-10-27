@@ -1,29 +1,48 @@
 /**
  * https://leetcode.com/problems/number-of-recent-calls/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-28 - X
  * 24-03-21 - X
  * 23-11-29 - X
  */
 
 /**
+ * 24-10-28 - X
+ */
+var RecentCounter = function () {
+  this.arr = [];
+};
+
+/**
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function (t) {
+  this.arr.push(t);
+  while (this.arr[0] < t - 3000) {
+    this.arr.shift();
+  }
+  return this.arr.length;
+};
+
+/**
  * 24-03-21 - X
  * 문제가 이해가 안갔지만 블로그 보고 이해함
  */
-var RecentCounter = function() {
-  this.stream = []
+var RecentCounter = function () {
+  this.stream = [];
 };
-RecentCounter.prototype.ping = function(t) {
-  this.stream.push(t) // Everytime we recieve a ping, add the time to the stream of integers
-/*
+RecentCounter.prototype.ping = function (t) {
+  this.stream.push(t); // Everytime we recieve a ping, add the time to the stream of integers
+  /*
 To exclude the times that are not included within the range of t - 3000,
 we remove the first element from the stream while it is less than the calculated range 
 */
-  while(this.stream[0] < t - 3000){ 
-    this.stream.shift()
-} 
+  while (this.stream[0] < t - 3000) {
+    this.stream.shift();
+  }
   // When the loop ends the length of calls will be the length of the array
-  return this.stream.length
+  return this.stream.length;
 };
-
 
 /**
  * 23-11-29 - X
