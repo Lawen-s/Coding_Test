@@ -1,8 +1,33 @@
 /**
  * https://leetcode.com/problems/dota2-senate/submissions/1108913810/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-30 - X
  * 24-03-21 - X
  * 23-11-29 - X
  */
+
+/**
+ * 24-10-30 - X
+ */
+var predictPartyVictory = function (senate) {
+  let r = [];
+  let s = [];
+  let len = senate.length;
+  for (let i = 0; i < len; i++) {
+    if (senate[i] === "R") r.push(i);
+    else s.push(i);
+  }
+
+  while (r.length > 0 && s.length > 0) {
+    let rIdx = r.shift();
+    let sIdx = s.shift();
+    if (rIdx < sIdx) {
+      r.push(rIdx + len);
+    } else {
+      s.push(sIdx + len);
+    }
+  }
+  return r.length > 0 ? "Radiant" : "Dire";
+};
 
 /**
  * 24-03-21 - X - 풀이 보고 이해
@@ -19,7 +44,7 @@ function predictPartyVictory(senate) {
   for (let i = 0; i < n; i++) {
     // If the senator is from the Radiant party, add their index to the radiant array
     // with an offset of n, representing their vote in the next round.
-    if (senate[i] === 'R') {
+    if (senate[i] === "R") {
       radiant.push(i + n);
     } else {
       // If the senator is from the Dire party, add their index to the dire array
@@ -48,7 +73,7 @@ function predictPartyVictory(senate) {
   }
 
   // Return the winner of the voting procedure based on which party has remaining votes.
-  return (radiant.length > 0) ? "Radiant" : "Dire";
+  return radiant.length > 0 ? "Radiant" : "Dire";
 }
 
 /**
