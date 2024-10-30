@@ -1,10 +1,37 @@
 /**
  * https://leetcode.com/problems/decode-string/submissions/1108192700/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-30 - X
  * 24-10-29 - X
  * 24-10-25 - X
  * 24-03-19 - X
  * 23-11-28 - X
  */
+
+/**
+ * 24-10-30 - X
+ */
+var decodeString = function (s) {
+  let arr = [];
+  let num = 0;
+  let str = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "[") {
+      arr.push(num);
+      arr.push(str);
+      num = 0;
+      str = "";
+    } else if (s[i] === "]") {
+      let sStr = arr.pop();
+      let sNum = arr.pop();
+      str = sStr + str.repeat(sNum);
+    } else if (s[i] >= "0" && s[i] <= "9") {
+      num = num * 10 + Number(s[i]);
+    } else {
+      str += s[i];
+    }
+  }
+  return str;
+};
 
 /**
  * 24-10-29 - X
