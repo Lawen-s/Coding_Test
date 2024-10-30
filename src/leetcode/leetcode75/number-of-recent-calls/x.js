@@ -1,9 +1,29 @@
 /**
  * https://leetcode.com/problems/number-of-recent-calls/?envType=study-plan-v2&envId=leetcode-75
+ * 24-10-30 - X
  * 24-10-28 - X
  * 24-03-21 - X
  * 23-11-29 - X
  */
+
+/**
+ * 24-10-30 - X
+ */
+var RecentCounter = function () {
+  this.arr = [];
+};
+
+/**
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function (t) {
+  this.arr.push(t);
+  while (this.arr[0] < t - 3000) {
+    this.arr.shift();
+  }
+  return this.arr.length;
+};
 
 /**
  * 24-10-28 - X
