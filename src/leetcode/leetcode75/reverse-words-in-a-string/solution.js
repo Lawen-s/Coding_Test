@@ -1,9 +1,29 @@
 /**
  * https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=leetcode-75
+ * 24-11-04 - O
  * 24-09-10 - O
  * 24-08-29 - O
  * 24-02-04 - O
  */
+
+/**
+ * 24-11-04 - O
+ */
+var reverseVowels = function (s) {
+  let splitS = s.split("");
+  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  let sVowels = splitS.filter((v) => vowels.includes(v));
+  let result = [];
+  for (let i = 0; i < splitS.length; i++) {
+    if (vowels.includes(splitS[i])) {
+      let popS = sVowels.pop();
+      result.push(popS);
+    } else {
+      result.push(splitS[i]);
+    }
+  }
+  return result.join("");
+};
 
 /**
  * 24-09-10 - O
