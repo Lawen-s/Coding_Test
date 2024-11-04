@@ -9,39 +9,15 @@
 /**
  * 24-11-04 - O
  */
-var reverseVowels = function (s) {
-  let splitS = s.split("");
-  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
-  let sVowels = splitS.filter((v) => vowels.includes(v));
+var reverseWords = function (s) {
+  let splitS = s.split(" ");
   let result = [];
   for (let i = 0; i < splitS.length; i++) {
-    if (vowels.includes(splitS[i])) {
-      let popS = sVowels.pop();
-      result.push(popS);
-    } else {
-      result.push(splitS[i]);
+    if (splitS[i] !== "") {
+      result.unshift(splitS[i]);
     }
   }
-  return result.join("");
-};
-
-/**
- * 24-09-10 - O
- */
-var reverseVowels = function (s) {
-  let wordArr = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
-  let vowelArr = s
-    .split("")
-    .filter((v) => wordArr.includes(v))
-    .reverse();
-  let sArr = s.split("");
-  for (let i = 0; i < sArr.length; i++) {
-    if (wordArr.includes(sArr[i])) {
-      let vowel = vowelArr.shift();
-      sArr[i] = vowel;
-    }
-  }
-  return sArr.join("");
+  return result.join(" ");
 };
 
 /**
