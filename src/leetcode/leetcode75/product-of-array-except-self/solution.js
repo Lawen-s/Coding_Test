@@ -1,11 +1,28 @@
 /**
  * https://leetcode.com/problems/product-of-array-except-self/?envType=study-plan-v2&envId=leetcode-75
+ * 24-11-04 - O
  * 24-09-24 - O
  * 24-09-23 - X
  * 24-09-05 - O
  * 24-02-05 - X
  * 23-11-14 - O
  */
+
+/**
+ * 24-11-04 - O
+ */
+var productExceptSelf = function (nums) {
+  let max = nums.reduce((acc, cur) => acc * cur, 1);
+  if (max === 0) {
+    return nums.map((v, i) =>
+      nums.reduce((acc, cur, idx) => (idx !== i ? acc * cur : acc), 1)
+    );
+  } else {
+    return nums.map((v) => {
+      return Math.floor(max / v);
+    });
+  }
+};
 
 /**
  * 24-09-24 - O
