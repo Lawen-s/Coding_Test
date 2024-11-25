@@ -1,23 +1,33 @@
 /**
  * https://leetcode.com/problems/reverse-linked-list/submissions/1108935057/?envType=study-plan-v2&envId=leetcode-75
+ * 24-11-25 - X
  * 24-03-25 - X
  * 23-11-29 - X
  */
+
+/**
+ * 24-11-25 - X
+ */
+var reverseList = function (head) {
+  if (head == null || head.next == null) return head;
+  var res = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return res;
+};
 
 /**
  * 24-03-25 - X - 재귀함수로 문제를 해결하는 방식
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+var reverseList = function (head) {
   if (head == null || head.next == null) return head;
   var res = reverseList(head.next);
   head.next.next = head;
   head.next = null;
-  return res; 
+  return res;
 };
-
-
 
 /**
  * Definition for singly-linked list.
