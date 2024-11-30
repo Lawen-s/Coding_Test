@@ -1,29 +1,49 @@
 /**
  * https://leetcode.com/problems/maximum-depth-of-binary-tree/solutions/34445/my-solution-in-javascript/?envType=study-plan-v2&envId=leetcode-75
+ * 24-11-30 - X
  * 24-03-30 - X
  * 23-12-01 - X
  */
 
 /**
- * 24-03-30 - X - 풀이보고 이해
- * @param {*} root 
- * @returns 
+ * 24-11-30 - X
  */
-var maxDepth=function(root){
+var maxDepth = function (root) {
+  if (!root) return 0;
+  let depth = 0;
+  const queue = [root];
+  while (queue.length !== 0) {
+    depth++;
+    const len = queue.length;
+    for (let i = 0; i < len; i++) {
+      if (queue[i].left) queue.push(queue[i].left);
+      if (queue[i].right) queue.push(queue[i].right);
+    }
+    queue.splice(0, len);
+  }
+  return depth;
+};
+
+/**
+ * 24-03-30 - X - 풀이보고 이해
+ * @param {*} root
+ * @returns
+ */
+var maxDepth = function (root) {
   if (!root) return 0;
   const queue = [root];
   let depth = 0;
   while (queue.length !== 0) {
-      depth++;
-      const len = queue.length;
-      for (let i = 0; i < len; i++) {
-          if (queue[i].left) queue.push(queue[i].left);
-          if (queue[i].right) queue.push(queue[i].right);
-      }
-      queue.splice(0, len);
+    depth++;
+    const len = queue.length;
+    for (let i = 0; i < len; i++) {
+      if (queue[i].left) queue.push(queue[i].left);
+      if (queue[i].right) queue.push(queue[i].right);
+    }
+    queue.splice(0, len);
   }
   return depth;
-}
+};
 
 /**
  * 24-12-01 - X
