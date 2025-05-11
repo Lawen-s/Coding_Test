@@ -1,6 +1,30 @@
 // 풀이 확인
 
 class Solution {
+  characterReplacement(s, k) {
+    let setS = new Set(s);
+    let result = 0;
+    for (let char of setS) {
+      let l = 0,
+        count = 0;
+      for (let r = 0; r < s.length; r++) {
+        if (char === s[r]) {
+          count++;
+        }
+        while (r - l + 1 - count > k) {
+          if (s[l] === char) {
+            count--;
+          }
+          l++;
+        }
+        result = Math.max(result, r - l + 1);
+      }
+    }
+    return result;
+  }
+}
+
+class Solution {
   /**
    * @param {string} s
    * @param {number} k
