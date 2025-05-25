@@ -1,3 +1,27 @@
+// 풀이를 한번 확인 후 비슷한 방식으로 해결
+var test = (s1, s2) => {
+  if (s1.length > s2.length) {
+    return false;
+  }
+  let checkS1 = s1.split("").sort().join("");
+  let checkStr = "";
+  for (let i = 0; i < s2.length; i++) {
+    if (checkStr.length < s1.length) {
+      checkStr += s2[i];
+    } else {
+      let newStr = checkStr.split("").sort().join("");
+      console.log({ checkStr, checkS1 });
+      if (newStr === checkS1) {
+        return true;
+      } else {
+        checkStr = checkStr.slice(1, checkS1.length);
+        checkStr += s2[i];
+      }
+    }
+  }
+  return checkS1 === checkStr.split("").sort().join("");
+};
+
 // 풀이 확인
 class Solution {
   /**
