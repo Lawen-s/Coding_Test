@@ -1,34 +1,22 @@
 // ctrl + opt + n 실행
-var test = (s) => {
-  // 1. 문자열에서 띄어쓰기 된부분을 제거
-  // 2. 첫번째 숫자와 마지막숫자를 변수로 지정
-  // 3. 비교하면서 가운데로 숫자 이동
-  // 4. 일치하지 않는 경우 false
-  const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi; // 특수문자 제거 규칙
-  const removeEmptySpace = s.replace(/\s/g, ""); // 공백제거 정규표현식
-  const removeSomeStr = removeEmptySpace.replace(reg, "").toLowerCase(); // 특수문자제거 및 소문자로 변경
-  console.log({ removeEmptySpace });
-  console.log({ removeSomeStr });
-  let start = 0;
-  let end = removeSomeStr.length - 1;
-  while (start < end) {
-    if (removeSomeStr[start] !== removeSomeStr[end]) {
-      console.log(removeSomeStr[end]);
-      console.log(removeSomeStr[start]);
-      return false;
-    } else {
-      start++;
-      end--;
-    }
+var test = (head) => {
+  let prev = null;
+  let curr = head;
+
+  while (curr) {
+    let temp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
   }
-  return true;
+  return prev;
 };
 
-console.log(test("Was it a car or a cat I saw?"));
-// console.log(test((heights = [2, 1, 5, 6, 2, 3])));
-// console.log(test([7, 1, 7, 2, 2, 4]));
-// console.log(test([1, 3, 7]));
-// console.log(leafSimilar([1, 2, 3], [1, 3, 2]));
+// console.log(test("XYYX", 2));
+// console.log(test("AAABABB", 1));
+// console.log(test("abc", "lecabee"));
+console.log(test([0, 1, 2, 3]));
+// console.log(test(9,[[3,2,6],[5,1,4],[1,7,13]]));
 
 // console.log(moveZeroes([0, 1, 0, 3, 12]));
 // console.log(mergeAlternately("abc","pqr"))
