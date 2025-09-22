@@ -1,3 +1,33 @@
+// 풀이확인
+function solution(numbers) {
+  function combination(currNum) {
+    if (currNum.length > 0) {
+      result.add(Number(currNum));
+    }
+    for (let i = 0; i < numbers.length; i++) {
+      if (!visited[i]) {
+        visited[i] = true;
+        combination(currNum + numbers[i]);
+        visited[i] = false;
+      }
+    }
+  }
+
+  const result = new Set();
+  const visited = new Array(numbers.length).fill(false);
+
+  combination("");
+  return Array.from(result).filter(isPrime).length;
+}
+
+function isPrime(num) {
+  const sqrt = Math.sqrt(num);
+  for (let i = 2; i <= sqrt; i++) {
+    if (num % i === 0) return false;
+  }
+  return num > 1;
+}
+
 function solution(numbers) {
   let answer = [];
   let numArr = numbers.split("");
